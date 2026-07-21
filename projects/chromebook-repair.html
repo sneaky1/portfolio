@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Case study for a web-based Chromebook repair ticketing, inventory, reporting, and device-service management system built by Adam Thomas."
+    >
+
+    <title>Chromebook Repair System | Adam Thomas</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container navigation">
+            <a class="site-name" href="../index.html">Adam Thomas</a>
+
+            <nav aria-label="Primary navigation">
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a class="active" href="../projects.html">Projects</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">Full-Stack Application Case Study</p>
+
+                <h1>Chromebook Repair Management System</h1>
+
+                <p class="hero-summary">
+                    A web-based application designed to centralize repair tickets,
+                    inventory, parts requests, reporting, device images, charges,
+                    and service workflows.
+                </p>
+
+                <div class="hero-actions">
+                    <a
+                        class="button button-primary"
+                        href="https://github.com/sneaky1/chromebook-repair-system"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View GitHub Repository
+                    </a>
+
+                    <a class="button button-secondary" href="../projects.html">
+                        Back to Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Project Overview</p>
+                    <h2>The problem</h2>
+
+                    <p>
+                        Repair information was spread across disconnected processes,
+                        making it difficult to track device status, parts usage,
+                        repair history, charges, inventory levels, and reporting.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <h3>Goal</h3>
+
+                        <p>
+                            Create one reliable system for submitting, assigning,
+                            updating, completing, searching, printing, and reporting
+                            on Chromebook repairs.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>My Role</h3>
+
+                        <p>
+                            I designed the workflow, database integration, API,
+                            user interface, reporting features, security controls,
+                            deployment process, and ongoing enhancements.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Users</h3>
+
+                        <p>
+                            The application supports technology staff, repair teams,
+                            library staff, and other authorized users involved in
+                            device-service operations.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Result</h3>
+
+                        <p>
+                            The system replaced fragmented repair tracking with a
+                            centralized application that improves visibility,
+                            consistency, accountability, and reporting.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Architecture</p>
+                    <h2>How the system is built</h2>
+                </div>
+
+                <div class="project-grid">
+                    <article class="project-card">
+                        <p class="project-type">Front End</p>
+                        <h3>Blazor Web Application</h3>
+
+                        <p>
+                            Responsive pages and reusable components provide ticket,
+                            inventory, reporting, search, print, and administration
+                            workflows.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="project-type">Application Layer</p>
+                        <h3>ASP.NET Core REST API</h3>
+
+                        <p>
+                            API controllers handle ticket operations, lookup data,
+                            image access, inventory, parts requests, reports,
+                            suggestions, metrics, and administrative tasks.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="project-type">Data Layer</p>
+                        <h3>SQL Server and Entity Framework Core</h3>
+
+                        <p>
+                            Relational data stores repair tickets, images, parts,
+                            charges, requests, inventory activity, and reporting data.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Key Features</p>
+                    <h2>Core application capabilities</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <h3>Ticket Management</h3>
+
+                        <ul>
+                            <li>Create and update repair tickets</li>
+                            <li>Search open and closed tickets</li>
+                            <li>Assign technicians and track status</li>
+                            <li>Record repair notes and completed work</li>
+                            <li>Print individual tickets and reports</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Inventory and Parts</h3>
+
+                        <ul>
+                            <li>Track quantities by location</li>
+                            <li>Record parts used during repairs</li>
+                            <li>Submit and manage parts requests</li>
+                            <li>Identify low-stock inventory</li>
+                            <li>Support quantity adjustments and reporting</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Reporting</h3>
+
+                        <ul>
+                            <li>Open and closed ticket reporting</li>
+                            <li>Damage and charge summaries</li>
+                            <li>Repair trends and issue counts</li>
+                            <li>Date-based and asset-based reports</li>
+                            <li>Dashboard metrics and drill-down views</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Files and Images</h3>
+
+                        <ul>
+                            <li>Upload repair images</li>
+                            <li>Display ticket image galleries</li>
+                            <li>Store image records with ticket relationships</li>
+                            <li>Preview and remove selected images</li>
+                            <li>Keep production storage paths outside source control</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Security</p>
+                    <h2>Security and access decisions</h2>
+                </div>
+
+                <article class="project-card">
+                    <ul>
+                        <li>Role-based access based on authorized user groups</li>
+                        <li>API authentication and protected application routes</li>
+                        <li>Configuration secrets excluded from Git repositories</li>
+                        <li>Sanitized example configuration files for public use</li>
+                        <li>Audit logging for important application activity</li>
+                        <li>Production server paths and credentials kept outside source code</li>
+                        <li>Public repository stripped of organization-specific data and branding</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Technology Stack</p>
+                    <h2>Tools and technologies</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <h3>Application Development</h3>
+
+                        <p>
+                            C#, ASP.NET Core, Blazor, Razor components,
+                            Entity Framework Core, REST APIs, HTML, CSS,
+                            and JavaScript.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Data and Hosting</h3>
+
+                        <p>
+                            SQL Server, IIS, Windows Server, file storage,
+                            configuration management, Git, and GitHub.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">What I Learned</p>
+                    <h2>Technical and operational lessons</h2>
+                </div>
+
+                <article class="project-card">
+                    <p>
+                        This project strengthened my ability to translate operational
+                        requirements into application workflows, connect a web interface
+                        to a database-backed API, secure sensitive configuration,
+                        troubleshoot deployment issues, refine the user experience,
+                        and maintain a growing application over time.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Source Code</p>
+                    <h2>Sanitized demonstration repository</h2>
+
+                    <p>
+                        The public repository contains a sanitized test and demonstration
+                        build. Organization-specific credentials, server paths, records,
+                        branding, deployment profiles, and confidential data are excluded.
+                    </p>
+                </div>
+
+                <a
+                    class="button button-primary"
+                    href="https://github.com/sneaky1/chromebook-repair-system"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Project on GitHub
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="current-year"></span> Adam Thomas</p>
+            <p>Built with HTML, CSS, JavaScript, Git, and GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
