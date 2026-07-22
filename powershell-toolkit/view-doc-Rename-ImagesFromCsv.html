@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Rename-ImagesFromCsv Documentation | Adam Thomas</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+        .documentation-shell {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .documentation-card {
+            padding: 2.25rem;
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+        }
+
+        .documentation-card h1 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .documentation-card h2 {
+            margin-top: 2.25rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+        }
+
+        .documentation-card h3 {
+            margin-top: 1.75rem;
+        }
+
+        .documentation-card ul {
+            padding-left: 1.4rem;
+        }
+
+        .documentation-card li {
+            margin-bottom: 0.55rem;
+        }
+
+        .documentation-code {
+            overflow-x: auto;
+            margin: 1.25rem 0;
+            padding: 1.25rem;
+            border-radius: 10px;
+            background: #0f172a;
+            color: #e2e8f0;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .documentation-code code {
+            font-family: Consolas, Monaco, "Courier New", monospace;
+            font-size: 0.94rem;
+            line-height: 1.7;
+            white-space: pre;
+        }
+
+        @media (max-width: 700px) {
+            .documentation-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container navigation">
+            <a class="site-name" href="../index.html">Adam Thomas</a>
+
+            <nav aria-label="Primary navigation">
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a class="active" href="../projects.html">Projects</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">PowerShell Documentation</p>
+
+                <h1>Rename-ImagesFromCsv</h1>
+
+                <p class="hero-summary">
+                    Usage instructions, requirements, examples, safety features,
+                    and implementation notes for this toolkit script.
+                </p>
+
+                <div class="hero-actions">
+                    <a
+                        class="button button-primary"
+                        href="view-Rename-ImagesFromCsv.html"
+                    >
+                        View Script
+                    </a>
+
+                    <a
+                        class="button button-secondary"
+                        href="index.html"
+                    >
+                        Back to Toolkit
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container documentation-shell">
+                <article class="documentation-card">
+<h1>Rename-ImagesFromCsv.ps1</h1>
+<h2>Purpose</h2>
+<p>Reads image files from a selected folder, exports the filenames to a CSV template, and renames the files in bulk using the edited CSV.</p>
+<h2>What the Script Does</h2>
+<ul>
+<li>Reads supported image files from a selected folder</li>
+<li>Sorts the files by name</li>
+<li>Creates a CSV with CurrentName and NewName columns</li>
+<li>Allows the NewName column to be edited in Excel or another CSV editor</li>
+<li>Validates the CSV before renaming files</li>
+<li>Skips unchanged rows</li>
+<li>Warns when a source file is missing</li>
+<li>Prevents overwriting an existing destination file</li>
+<li>Supports PowerShell WhatIf previews</li>
+</ul>
+<h2>Supported Image Types</h2>
+<ul>
+<li>JPG and JPEG</li>
+<li>PNG</li>
+<li>GIF</li>
+<li>BMP</li>
+<li>WEBP</li>
+<li>TIF and TIFF</li>
+</ul>
+<h2>Step 1: Create the CSV Template</h2>
+<pre class="documentation-code"><code>.\scripts\Rename-ImagesFromCsv.ps1 `
+    -FolderPath &quot;.\images&quot; `
+    -CsvPath &quot;.\rename-images.csv&quot; `
+    -Mode CreateCsv</code></pre>
+<h2>Step 2: Edit the CSV</h2>
+<p>Open rename-images.csv and change only the NewName values.</p>
+<p>Example:</p>
+<pre class="documentation-code"><code>CurrentName,NewName
+IMG_0001.png,Dashboard.png
+IMG_0002.png,New-Ticket.png</code></pre>
+<h2>Step 3: Preview the Rename</h2>
+<pre class="documentation-code"><code>.\scripts\Rename-ImagesFromCsv.ps1 `
+    -FolderPath &quot;.\images&quot; `
+    -CsvPath &quot;.\rename-images.csv&quot; `
+    -Mode Rename `
+    -WhatIf</code></pre>
+<h2>Step 4: Perform the Rename</h2>
+<pre class="documentation-code"><code>.\scripts\Rename-ImagesFromCsv.ps1 `
+    -FolderPath &quot;.\images&quot; `
+    -CsvPath &quot;.\rename-images.csv&quot; `
+    -Mode Rename</code></pre>
+<h2>CSV Columns</h2>
+<ul>
+<li>CurrentName: the existing filename</li>
+<li>NewName: the replacement filename</li>
+</ul>
+<h2>Safety Features</h2>
+<ul>
+<li>Supports WhatIf before making changes</li>
+<li>Does not overwrite files that already exist</li>
+<li>Skips rows where the old and new names match</li>
+<li>Reports missing source files</li>
+<li>Validates required CSV columns</li>
+</ul>
+<h2>Security and Privacy</h2>
+<p>The public example uses generic filenames and relative paths. Production folders, internal file names, user data, and organization-specific information should be removed before publication.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div>
+                <p>&copy; <span id="current-year"></span></p>
+                <p>Adam Thomas</p>
+                <p>Baytown, Texas</p>
+            </div>
+
+            <p>Built with HTML, CSS, JavaScript, Git, and GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
+

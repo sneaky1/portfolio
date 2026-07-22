@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Get-RemoteUserDiskUsage Documentation | Adam Thomas</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+        .documentation-shell {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .documentation-card {
+            padding: 2.25rem;
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+        }
+
+        .documentation-card h1 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .documentation-card h2 {
+            margin-top: 2.25rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+        }
+
+        .documentation-card h3 {
+            margin-top: 1.75rem;
+        }
+
+        .documentation-card ul {
+            padding-left: 1.4rem;
+        }
+
+        .documentation-card li {
+            margin-bottom: 0.55rem;
+        }
+
+        .documentation-code {
+            overflow-x: auto;
+            margin: 1.25rem 0;
+            padding: 1.25rem;
+            border-radius: 10px;
+            background: #0f172a;
+            color: #e2e8f0;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .documentation-code code {
+            font-family: Consolas, Monaco, "Courier New", monospace;
+            font-size: 0.94rem;
+            line-height: 1.7;
+            white-space: pre;
+        }
+
+        @media (max-width: 700px) {
+            .documentation-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container navigation">
+            <a class="site-name" href="../index.html">Adam Thomas</a>
+
+            <nav aria-label="Primary navigation">
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a class="active" href="../projects.html">Projects</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">PowerShell Documentation</p>
+
+                <h1>Get-RemoteUserDiskUsage</h1>
+
+                <p class="hero-summary">
+                    Usage instructions, requirements, examples, safety features,
+                    and implementation notes for this toolkit script.
+                </p>
+
+                <div class="hero-actions">
+                    <a
+                        class="button button-primary"
+                        href="view-Get-RemoteUserDiskUsage.html"
+                    >
+                        View Script
+                    </a>
+
+                    <a
+                        class="button button-secondary"
+                        href="index.html"
+                    >
+                        Back to Toolkit
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container documentation-shell">
+                <article class="documentation-card">
+<h1>Get-RemoteUserDiskUsage.ps1</h1>
+<h2>Purpose</h2>
+<p>Reports the amount of disk space used by each user profile folder on a remote Windows computer.</p>
+<h2>What the Script Does</h2>
+<ul>
+<li>Connects to a remote computer with PowerShell Remoting</li>
+<li>Scans folders under C:\Users</li>
+<li>Calculates the total size of each user folder</li>
+<li>Sorts results from largest to smallest</li>
+<li>Exports the results to a CSV file</li>
+<li>Provides basic error handling</li>
+</ul>
+<h2>Requirements</h2>
+<ul>
+<li>Windows PowerShell 5.1 or PowerShell 7</li>
+<li>PowerShell Remoting enabled on the target computer</li>
+<li>Administrative access to the target computer</li>
+<li>Network connectivity to the target computer</li>
+</ul>
+<h2>Example</h2>
+<pre class="documentation-code"><code>.\scripts\Get-RemoteUserDiskUsage.ps1 -ComputerName &quot;TEST-PC01&quot;</code></pre>
+<h2>Custom Output Path</h2>
+<pre class="documentation-code"><code>.\scripts\Get-RemoteUserDiskUsage.ps1 `
+    -ComputerName &quot;TEST-PC01&quot; `
+    -OutputPath &quot;.\sample-output\TEST-PC01-disk-usage.csv&quot;</code></pre>
+<h2>Sample Output Fields</h2>
+<ul>
+<li>ComputerName</li>
+<li>UserFolder</li>
+<li>Path</li>
+<li>SizeGB</li>
+</ul>
+<h2>Security Notes</h2>
+<p>The public version uses sample computer names and relative output paths. Internal server names, usernames, network paths, and organization-specific information are not included.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div>
+                <p>&copy; <span id="current-year"></span></p>
+                <p>Adam Thomas</p>
+                <p>Baytown, Texas</p>
+            </div>
+
+            <p>Built with HTML, CSS, JavaScript, Git, and GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
