@@ -78,18 +78,93 @@
 
 <body>
     <header class="site-header">
-        <div class="container navigation">
-            <a class="site-name" href="../index.html">Adam Thomas</a>
+  <div class="container navigation">
+    <a class="site-name" href="../index.html">Adam Thomas</a>
 
-            <nav aria-label="Primary navigation">
-                <a href="../index.html">Home</a>
-                <a href="../about.html">About</a>
-                <a class="active" href="../projects.html">Projects</a>
-                <a href="../gallery.html">Gallery</a>
-                <a href="../contact.html">Contact</a>
-            </nav>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+
+      <div class="nav-dropdown">
+        <button
+          class="nav-dropdown-toggle active"
+          type="button"
+          aria-expanded="false"
+        >
+          Projects
+        </button>
+
+        <div class="nav-dropdown-menu">
+          <a href="../projects.html">All Projects</a>
+
+          <a href="../projects/chromebook-repair.html">
+            Chromebook Repair System
+          </a>
+
+          <a href="../projects/powershell-toolkit.html">
+            PowerShell Toolkit Case Study
+          </a>
+
+          <a href="../powershell-toolkit/index.html">
+            Browse PowerShell Toolkit
+          </a>
         </div>
-    </header>
+      </div>
+
+      <div class="nav-dropdown">
+        <button
+          class="nav-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+          Resources
+        </button>
+
+        <div class="nav-dropdown-menu">
+          <a href="../gallery.html">
+            Screenshot Gallery
+          </a>
+
+          <a href="../powershell-toolkit/index.html#included-scripts">
+            PowerShell Scripts
+          </a>
+
+          <a href="../powershell-toolkit/index.html#sample-results">
+            Sample Results
+          </a>
+        </div>
+      </div>
+
+      <a href="../contact.html">Contact</a>
+
+      <form
+        class="site-search"
+        role="search"
+        data-root="../"
+      >
+        <label class="sr-only" for="site-search-input">
+          Search portfolio
+        </label>
+
+        <input
+          id="site-search-input"
+          type="search"
+          placeholder="Search portfolio"
+          autocomplete="off"
+        >
+
+        <button type="submit" aria-label="Search">
+          &#128269;
+        </button>
+
+        <div
+          class="search-results-panel"
+          aria-live="polite"
+        ></div>
+      </form>
+    </nav>
+  </div>
+</header>
 
     <main>
         <section class="hero">
@@ -202,4 +277,5 @@
     <script src="../js/script.js"></script>
 </body>
 </html>
+
 
