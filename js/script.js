@@ -158,6 +158,30 @@ document.addEventListener("DOMContentLoaded", () => {
             keywords: "message summary sample results errors frequency csv"
         },
         {
+            title: "SQL Reporting Portfolio",
+            type: "Portfolio",
+            url: "sql-reporting/index.html",
+            keywords: "sql reporting oracle sql server queries data validation"
+        },
+        {
+            title: "Student Risk Indicator Summary",
+            type: "SQL Query",
+            url: "sql-reporting/view-student-risk-indicator-summary.html",
+            keywords: "student risk indicators sql case coalesce cte"
+        },
+        {
+            title: "Student Risk Indicator Documentation",
+            type: "Documentation",
+            url: "sql-reporting/view-doc-student-risk-indicator-summary.html",
+            keywords: "student risk documentation sql double counting"
+        },
+        {
+            title: "Student Risk Indicator Sample Results",
+            type: "Sample Result",
+            url: "sql-reporting/view-sample-student-risk-indicator-summary.html",
+            keywords: "student risk sample results categories"
+        },
+        {
             title: "About Adam Thomas",
             type: "Page",
             url: "about.html",
@@ -261,6 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
 
 
 

@@ -1,0 +1,6 @@
+﻿"StudentID","IsAtRisk","IsPreKAtRisk","RiskCategory"
+"100101","1","0","At Risk Only"
+"100102","0","1","Pre-K At Risk Only"
+"100103","1","1","Both Categories"
+"100104","0","0","Not At Risk"
+"100105","1","0","At Risk Only"

@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Get-MessageSummary.ps1 | Adam Thomas</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Risk Indicator Summary | Adam Thomas</title>
 
     <link rel="stylesheet" href="../css/styles.css">
 
@@ -25,7 +29,7 @@
 
         .code-block {
             overflow-x: auto;
-            max-height: 750px;
+            max-height: 760px;
             padding: 1.5rem;
             border-radius: 12px;
             background: #0f172a;
@@ -154,25 +158,29 @@
     <main>
         <section class="hero">
             <div class="container hero-content">
-                <p class="eyebrow">PowerShell Script</p>
-                <h1>Get-MessageSummary.ps1</h1>
+                <p class="eyebrow">SQL Query</p>
+
+                <h1>Student Risk Indicator Summary</h1>
 
                 <p class="hero-summary">
-                    Reads CSV files, extracts messages from a selected column,
-                    groups matching entries, and reports how often each occurs.
+                    A sanitized reporting query that combines multiple risk
+                    indicators, assigns one final category, and helps prevent
+                    double-counting.
                 </p>
 
                 <div class="hero-actions">
-                    <a class="button button-primary" href="index.html">
-                        Back to Toolkit
-                    </a>
-
-                    <a class="button button-secondary" href="docs\Get-MessageSummary.md">
+                    <a
+                        class="button button-primary"
+                        href="view-doc-student-risk-indicator-summary.html"
+                    >
                         View Documentation
                     </a>
 
-                    <a class="button button-secondary" href="scripts/Get-MessageSummary.ps1">
-                        View Raw Script
+                    <a
+                        class="button button-secondary"
+                        href="index.html"
+                    >
+                        Back to SQL Portfolio
                     </a>
                 </div>
             </div>
@@ -181,83 +189,81 @@
         <section class="section">
             <div class="container code-shell">
                 <div class="code-toolbar">
-                    <span class="code-file-label">Get-MessageSummary.ps1</span>
+                    <span class="code-file-label">
+                        student-risk-indicator-summary.sql
+                    </span>
 
                     <button
                         class="button button-primary"
                         type="button"
-                        onclick="copyScript()"
+                        onclick="copyQuery()"
                     >
-                        Copy Script
+                        Copy Query
                     </button>
                 </div>
 
-                <pre class="code-block"><code id="script-code">[CmdletBinding()]
-param(
-    [Parameter(Mandatory)]
-    [string]$InputFolder,
+                <pre class="code-block"><code id="query-code">-- Student Risk Indicator Summary
+-- Sanitized portfolio example
 
-    [string]$FilePattern = &quot;*.csv&quot;,
+WITH risk_flags AS (
+    SELECT
+        s.student_id,
 
-    [Parameter(Mandatory)]
-    [string]$MessageColumn,
+        CASE
+            WHEN
+                COALESCE(r.general_flag_01, 0) = 1 OR
+                COALESCE(r.general_flag_02, 0) = 1 OR
+                COALESCE(r.general_flag_03, 0) = 1 OR
+                COALESCE(r.general_flag_04, 0) = 1
+            THEN 1
+            ELSE 0
+        END AS is_at_risk,
 
-    [string]$OutputPath = &quot;.\sample-output\message-summary.csv&quot;
+        CASE
+            WHEN
+                COALESCE(r.prekindergarten_flag_01, 0) = 1 OR
+                COALESCE(r.prekindergarten_flag_02, 0) = 1 OR
+                COALESCE(r.prekindergarten_flag_03, 0) = 1
+            THEN 1
+            ELSE 0
+        END AS is_pre_k_at_risk
+
+    FROM students s
+
+    INNER JOIN student_risk_indicators r
+        ON r.student_id = s.student_id
+
+    WHERE s.enrollment_status = 0
 )
 
-$ErrorActionPreference = &quot;Stop&quot;
+SELECT
+    student_id,
+    is_at_risk,
+    is_pre_k_at_risk,
 
-try {
-    $files = Get-ChildItem -Path $InputFolder -Filter $FilePattern -File
+    CASE
+        WHEN is_at_risk = 1 AND is_pre_k_at_risk = 0
+            THEN &#39;At Risk Only&#39;
 
-    if (-not $files) {
-        throw &quot;No files matching $FilePattern were found in $InputFolder.&quot;
-    }
+        WHEN is_at_risk = 0 AND is_pre_k_at_risk = 1
+            THEN &#39;Pre-K At Risk Only&#39;
 
-    $messages = foreach ($file in $files) {
-        $rows = Import-Csv -Path $file.FullName
+        WHEN is_at_risk = 1 AND is_pre_k_at_risk = 1
+            THEN &#39;Both Categories&#39;
 
-        foreach ($row in $rows) {
-            $message = $row.$MessageColumn
+        ELSE &#39;Not At Risk&#39;
+    END AS risk_category
 
-            if (-not [string]::IsNullOrWhiteSpace($message)) {
-                [PSCustomObject]@{
-                    SourceFile = $file.Name
-                    Message    = $message.Trim()
-                }
-            }
-        }
-    }
+FROM risk_flags
 
-    $summary = $messages |
-        Group-Object Message |
-        ForEach-Object {
-            [PSCustomObject]@{
-                Message     = $_.Name
-                Occurrences = $_.Count
-            }
-        } |
-        Sort-Object -Property @{Expression = &quot;Occurrences&quot;; Descending = $true}, Message
-
-    $outputDirectory = Split-Path $OutputPath -Parent
-
-    if ($outputDirectory -and -not (Test-Path $outputDirectory)) {
-        New-Item -ItemType Directory -Path $outputDirectory -Force | Out-Null
-    }
-
-    $summary | Export-Csv -Path $OutputPath -NoTypeInformation
-
-    Write-Host &quot;Files processed: $($files.Count)&quot;
-    Write-Host &quot;Unique messages: $($summary.Count)&quot;
-    Write-Host &quot;Report created: $OutputPath&quot;
-}
-catch {
-    Write-Error &quot;Unable to create the message summary: $($_.Exception.Message)&quot;
-    exit 1
-}
+ORDER BY student_id;
 </code></pre>
 
-                <p id="copy-status" class="copy-status" aria-live="polite"></p>
+                <p
+                    id="copy-status"
+                    class="copy-status"
+                    aria-live="polite"
+                ></p>
             </div>
         </section>
     </main>
@@ -277,21 +283,20 @@ catch {
     <script src="../js/script.js"></script>
 
     <script>
-        async function copyScript() {
-            const code = document.getElementById("script-code").innerText;
+        async function copyQuery() {
+            const query = document.getElementById("query-code").innerText;
             const status = document.getElementById("copy-status");
 
             try {
-                await navigator.clipboard.writeText(code);
-                status.textContent = "Script copied to clipboard."
+                await navigator.clipboard.writeText(query);
+                status.textContent = "Query copied to clipboard.";
             }
             catch (error) {
-                status.textContent = "Copy failed. Select the code and copy it manually."
+                status.textContent =
+                    "Copy failed. Select the query and copy it manually.";
             }
         }
     </script>
 </body>
 </html>
-
-
 

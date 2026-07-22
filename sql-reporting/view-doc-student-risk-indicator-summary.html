@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Get-ActiveDirectoryUserAudit Documentation | Adam Thomas</title>
+    <title>Student Risk Indicator Documentation | Adam Thomas</title>
 
     <link rel="stylesheet" href="../css/styles.css">
 
@@ -28,23 +27,13 @@
 
         .documentation-card h1 {
             margin-top: 0;
-            margin-bottom: 1.5rem;
             color: var(--primary);
         }
 
         .documentation-card h2 {
-            margin-top: 2.25rem;
-            margin-bottom: 0.8rem;
+            margin-top: 2rem;
             padding-bottom: 0.45rem;
             border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-        }
-
-        .documentation-card h3 {
-            margin-top: 1.75rem;
-        }
-
-        .documentation-card ul {
-            padding-left: 1.4rem;
         }
 
         .documentation-card li {
@@ -53,25 +42,16 @@
 
         .documentation-code {
             overflow-x: auto;
-            margin: 1.25rem 0;
             padding: 1.25rem;
             border-radius: 10px;
             background: #0f172a;
             color: #e2e8f0;
-            border: 1px solid rgba(148, 163, 184, 0.25);
         }
 
         .documentation-code code {
             font-family: Consolas, Monaco, "Courier New", monospace;
-            font-size: 0.94rem;
             line-height: 1.7;
             white-space: pre;
-        }
-
-        @media (max-width: 700px) {
-            .documentation-card {
-                padding: 1.25rem;
-            }
         }
     </style>
 </head>
@@ -175,28 +155,28 @@
     <main>
         <section class="hero">
             <div class="container hero-content">
-                <p class="eyebrow">PowerShell Documentation</p>
+                <p class="eyebrow">SQL Documentation</p>
 
-                <h1>Get-ActiveDirectoryUserAudit</h1>
+                <h1>Student Risk Indicator Summary</h1>
 
                 <p class="hero-summary">
-                    Usage instructions, requirements, examples, safety features,
-                    and implementation notes for this toolkit script.
+                    Query purpose, reporting logic, double-counting safeguards,
+                    implementation details, and a sample count query.
                 </p>
 
                 <div class="hero-actions">
                     <a
                         class="button button-primary"
-                        href="view-Get-ActiveDirectoryUserAudit.html"
+                        href="view-student-risk-indicator-summary.html"
                     >
-                        View Script
+                        View Query
                     </a>
 
                     <a
                         class="button button-secondary"
                         href="index.html"
                     >
-                        Back to Toolkit
+                        Back to SQL Portfolio
                     </a>
                 </div>
             </div>
@@ -205,64 +185,44 @@
         <section class="section section-muted">
             <div class="container documentation-shell">
                 <article class="documentation-card">
-<h1>Get-ActiveDirectoryUserAudit.ps1</h1>
+<h1>Student Risk Indicator Summary</h1>
 <h2>Purpose</h2>
-<p>Creates a CSV audit of enabled Active Directory users, including identity details, department, title, password status, last logon information, and group membership.</p>
-<h2>What the Script Does</h2>
+<p>Identifies whether each active student belongs to a general at-risk category, a pre-kindergarten at-risk category, both categories, or neither category.</p>
+<h2>What the Query Demonstrates</h2>
 <ul>
-<li>Imports the Active Directory PowerShell module</li>
-<li>Retrieves enabled user accounts</li>
-<li>Optionally limits the search to a selected organizational unit</li>
-<li>Collects department, title, email, and account details</li>
-<li>Reports password expiration settings</li>
-<li>Includes last logon, creation, and modification dates</li>
-<li>Retrieves group membership for each user</li>
-<li>Sorts users by display name</li>
-<li>Exports the audit to CSV</li>
+<li>Common table expressions</li>
+<li>Conditional logic with CASE</li>
+<li>Null handling with COALESCE</li>
+<li>Multiple indicator fields combined into one result</li>
+<li>Category assignment without double-counting</li>
+<li>Filtering for active enrollment</li>
+<li>Ordered reporting output</li>
 </ul>
-<h2>Requirements</h2>
+<h2>Query Logic</h2>
+<p>The first part of the query creates two calculated flags:</p>
 <ul>
-<li>Windows PowerShell 5.1 or PowerShell 7</li>
-<li>Active Directory module installed</li>
-<li>Network access to a domain controller</li>
-<li>Permission to read Active Directory user and group information</li>
+<li>is_at_risk</li>
+<li>is_pre_k_at_risk</li>
 </ul>
-<h2>Audit the Entire Domain</h2>
-<pre class="documentation-code"><code>.\scripts\Get-ActiveDirectoryUserAudit.ps1</code></pre>
-<h2>Audit a Specific Organizational Unit</h2>
-<pre class="documentation-code"><code>.\scripts\Get-ActiveDirectoryUserAudit.ps1 `
-    -SearchBase &quot;OU=Sample Users,DC=example,DC=com&quot;</code></pre>
-<h2>Use a Custom Output Path</h2>
-<pre class="documentation-code"><code>.\scripts\Get-ActiveDirectoryUserAudit.ps1 `
-    -OutputPath &quot;.\sample-output\ad-user-audit.csv&quot;</code></pre>
-<h2>Output Fields</h2>
+<p>Each flag returns 1 when at least one related indicator is set to 1. Otherwise, it returns 0.</p>
+<p>The final CASE expression assigns each student to one reporting category:</p>
 <ul>
-<li>SamAccountName</li>
-<li>DisplayName</li>
-<li>UserPrincipalName</li>
-<li>Email</li>
-<li>Department</li>
-<li>Title</li>
-<li>Enabled</li>
-<li>PasswordNeverExpires</li>
-<li>PasswordExpired</li>
-<li>LastLogonDate</li>
-<li>Created</li>
-<li>Modified</li>
-<li>DistinguishedName</li>
-<li>GroupMembership</li>
+<li>At Risk Only</li>
+<li>Pre-K At Risk Only</li>
+<li>Both Categories</li>
+<li>Not At Risk</li>
 </ul>
-<h2>Use Cases</h2>
-<ul>
-<li>Account review and access auditing</li>
-<li>Identifying users with passwords set to never expire</li>
-<li>Reviewing department and title attributes</li>
-<li>Confirming group-based access</li>
-<li>Supporting onboarding and offboarding reviews</li>
-<li>Preparing identity-management reports</li>
-</ul>
-<h2>Security Notes</h2>
-<p>Active Directory exports may contain sensitive identity and access information. Public examples must use fictional users, sample domains, and sanitized group names.</p>
+<h2>Double-Counting Consideration</h2>
+<p>The category column makes it possible to count students once by their final classification instead of independently adding both risk flags.</p>
+<h2>Example Count Query</h2>
+<pre class="documentation-code"><code>SELECT
+    risk_category,
+    COUNT(*) AS student_count
+FROM student_risk_summary
+GROUP BY risk_category
+ORDER BY risk_category;</code></pre>
+<h2>Sanitization Notes</h2>
+<p>The public query uses generic table names, field names, and identifiers. Production schema names, student numbers, school names, and confidential records are excluded.</p>
                 </article>
             </div>
         </section>
@@ -283,6 +243,4 @@
     <script src="../js/script.js"></script>
 </body>
 </html>
-
-
 

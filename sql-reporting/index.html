@@ -2,55 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        name="description"
+        content="Sanitized SQL reporting examples by Adam Thomas, including conditional logic, aggregation, validation, and operational reporting."
     >
 
-    <title>Bulk Image Rename Mapping | Adam Thomas</title>
+    <title>SQL Reporting Portfolio | Adam Thomas</title>
 
     <link rel="stylesheet" href="../css/styles.css">
-
-    <style>
-        .table-shell {
-            overflow-x: auto;
-            border: 1px solid rgba(148, 163, 184, 0.3);
-            border-radius: 12px;
-            background: white;
-            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-        }
-
-        .results-table {
-            width: 100%;
-            min-width: 760px;
-            border-collapse: collapse;
-        }
-
-        .results-table th,
-        .results-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-        }
-
-        .results-table th {
-            color: white;
-            background: #0f172a;
-        }
-
-        .results-table tbody tr:hover {
-            background: rgba(37, 99, 235, 0.06);
-        }
-
-        .result-note {
-            margin-bottom: 1.5rem;
-            padding: 1rem 1.25rem;
-            border-left: 4px solid var(--primary);
-            border-radius: 8px;
-            background: white;
-        }
-    </style>
 </head>
 
 <body>
@@ -152,68 +113,76 @@
     <main>
         <section class="hero">
             <div class="container hero-content">
-                <p class="eyebrow">Sanitized Sample Results</p>
+                <p class="eyebrow">Data and Reporting</p>
 
-                <h1>Bulk Image Rename Mapping</h1>
+                <h1>SQL Reporting Portfolio</h1>
 
                 <p class="hero-summary">
-                    A sample CSV mapping showing how existing image filenames are paired with new filenames before a bulk rename.
+                    Sanitized SQL examples demonstrating conditional logic,
+                    aggregation, validation, date filtering, joins, and
+                    operational reporting.
                 </p>
 
                 <div class="hero-actions">
-                    <a
-                        class="button button-primary"
-                        href="view-Rename-ImagesFromCsv.html"
-                    >
-                        View Script
-                    </a>
-
-                    <a
-                        class="button button-secondary"
-                        href="index.html#sample-results"
-                    >
-                        Back to Toolkit
+                    <a class="button button-primary" href="../projects.html">
+                        Back to Projects
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="section section-muted">
+        <section class="section">
             <div class="container">
-                <div class="result-note">
-                    This demonstration uses fictional names, generic paths,
-                    and nonproduction data.
+                <div class="section-heading">
+                    <p class="eyebrow">Included Query</p>
+                    <h2>Student Risk Indicator Summary</h2>
+
+                    <p>
+                        Combines multiple indicator fields, calculates general
+                        and pre-kindergarten risk flags, and assigns one final
+                        category to support accurate reporting.
+                    </p>
                 </div>
 
-                <div class="table-shell">
-                    <table class="results-table">
-                        <thead>
-                            <tr>
-                                <th>CurrentName</th>
-                                <th>NewName</th>
-                            </tr>
-                        </thead>
+                <article class="project-card">
+                    <p class="project-type">
+                        SQL • CTE • CASE • COALESCE • Data Validation
+                    </p>
 
-                        <tbody>
-                    <tr>
-                        <td>IMG_0001.png</td>
-                        <td>Dashboard.png</td>
-                    </tr>
-                    <tr>
-                        <td>IMG_0002.png</td>
-                        <td>New-Ticket.png</td>
-                    </tr>
-                    <tr>
-                        <td>IMG_0003.png</td>
-                        <td>Open-Tickets.png</td>
-                    </tr>
-                    <tr>
-                        <td>IMG_0004.png</td>
-                        <td>Parts-Inventory.png</td>
-                    </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <h3>Skills demonstrated</h3>
+
+                    <ul>
+                        <li>Common table expressions</li>
+                        <li>Conditional classification</li>
+                        <li>Null handling</li>
+                        <li>Active-record filtering</li>
+                        <li>Double-counting prevention</li>
+                        <li>Sanitized sample reporting</li>
+                    </ul>
+
+                    <div class="hero-actions">
+                        <a
+                            class="button button-primary"
+                            href="view-student-risk-indicator-summary.html"
+                        >
+                            View Query
+                        </a>
+
+                        <a
+                            class="button button-secondary"
+                            href="view-doc-student-risk-indicator-summary.html"
+                        >
+                            View Documentation
+                        </a>
+
+                        <a
+                            class="button button-secondary"
+                            href="view-sample-student-risk-indicator-summary.html"
+                        >
+                            View Sample Results
+                        </a>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
@@ -233,4 +202,5 @@
     <script src="../js/script.js"></script>
 </body>
 </html>
+
 
