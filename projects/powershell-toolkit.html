@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Case study for Adam Thomas's PowerShell Administration Toolkit, including remote reporting, CSV analysis, and bulk file-renaming automation."
+    >
+
+    <title>PowerShell Administration Toolkit | Adam Thomas</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container navigation">
+            <a class="site-name" href="../index.html">Adam Thomas</a>
+
+            <nav aria-label="Primary navigation">
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a class="active" href="../projects.html">Projects</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">Automation Case Study</p>
+                <h1>PowerShell Administration Toolkit</h1>
+
+                <p class="hero-summary">
+                    A collection of sanitized PowerShell scripts designed to
+                    reduce repetitive administrative work, standardize technical
+                    processes, and produce useful reports.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="../powershell-toolkit/README.md">
+                        View Toolkit README
+                    </a>
+
+                    <a class="button button-secondary" href="../projects.html">
+                        Back to Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Overview</p>
+                    <h2>Practical automation for support and administration</h2>
+
+                    <p>
+                        The toolkit demonstrates how PowerShell can be used for
+                        remote reporting, CSV analysis, bulk file operations,
+                        validation, error handling, and repeatable workflows.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <h3>Remote Disk Reporting</h3>
+                        <p>
+                            Measures user-profile disk usage on a remote Windows
+                            computer and exports sorted results to CSV.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Message Analysis</h3>
+                        <p>
+                            Reads CSV files, groups repeated messages, counts
+                            occurrences, and creates a summary report.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Bulk Image Renaming</h3>
+                        <p>
+                            Reads image names from a folder, creates an editable
+                            CSV mapping, previews changes, and renames files safely.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Safety and Validation</h3>
+                        <p>
+                            Includes input validation, error handling, duplicate
+                            protection, relative paths, and WhatIf support.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Included Scripts</p>
+                    <h2>Toolkit contents</h2>
+                </div>
+
+                <div class="project-grid">
+                    <article class="project-card">
+                        <p class="project-type">Systems Administration</p>
+                        <h3>Get-RemoteUserDiskUsage.ps1</h3>
+                        <p>
+                            Uses PowerShell Remoting to scan user folders,
+                            calculate storage use, and export results.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="project-type">Data Processing</p>
+                        <h3>Get-MessageSummary.ps1</h3>
+                        <p>
+                            Extracts a selected CSV column, groups duplicate
+                            messages, and ranks them by frequency.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="project-type">File Automation</p>
+                        <h3>Rename-ImagesFromCsv.ps1</h3>
+                        <p>
+                            Generates a filename mapping CSV and performs validated
+                            bulk renames with optional WhatIf previews.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Skills Demonstrated</p>
+                    <h2>Technical capabilities</h2>
+                </div>
+
+                <article class="project-card">
+                    <ul>
+                        <li>PowerShell scripting and advanced parameters</li>
+                        <li>Remote administration with Invoke-Command</li>
+                        <li>CSV import, export, grouping, and transformation</li>
+                        <li>File and folder automation</li>
+                        <li>Error handling with try and catch</li>
+                        <li>Input validation and safe-change controls</li>
+                        <li>Administrative reporting and documentation</li>
+                        <li>Sanitization for public repositories</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Project Files</p>
+                    <h2>Browse the toolkit</h2>
+
+                    <p>
+                        The toolkit includes source scripts, documentation, and
+                        sanitized sample output.
+                    </p>
+                </div>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="../powershell-toolkit/scripts/">
+                        View Scripts
+                    </a>
+
+                    <a class="button button-secondary" href="../powershell-toolkit/docs/">
+                        View Documentation
+                    </a>
+
+                    <a class="button button-secondary" href="../powershell-toolkit/sample-output/">
+                        View Sample Output
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div>
+                <p>&copy; <span id="current-year"></span></p>
+                <p>Adam Thomas</p>
+                <p>Baytown, Texas</p>
+
+                <p>
+                    <a href="mailto:adam.thomas9891@gmail.com">
+                        adam.thomas9891@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <a
+                        href="https://github.com/sneaky1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        github.com/sneaky1
+                    </a>
+                </p>
+            </div>
+
+            <p>Built with HTML, CSS, JavaScript, Git, and GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
