@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Get-ActiveDirectoryUserAudit.ps1 | Adam Thomas</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+        .code-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .code-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .code-block {
+            overflow-x: auto;
+            max-height: 750px;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: #0f172a;
+            color: #e2e8f0;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+        }
+
+        .code-block code {
+            font-family: Consolas, Monaco, "Courier New", monospace;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            white-space: pre;
+        }
+
+        .code-file-label {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .copy-status {
+            min-height: 1.5rem;
+            margin-top: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container navigation">
+            <a class="site-name" href="../index.html">Adam Thomas</a>
+
+            <nav aria-label="Primary navigation">
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a class="active" href="../projects.html">Projects</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">PowerShell Script</p>
+                <h1>Get-ActiveDirectoryUserAudit.ps1</h1>
+
+                <p class="hero-summary">
+                    Audits enabled Active Directory users and exports identity,
+                    password, last-logon, and group-membership information to CSV.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="index.html">
+                        Back to Toolkit
+                    </a>
+
+                    <a class="button button-secondary" href="docs\Get-ActiveDirectoryUserAudit.md">
+                        View Documentation
+                    </a>
+
+                    <a class="button button-secondary" href="scripts/Get-ActiveDirectoryUserAudit.ps1">
+                        View Raw Script
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container code-shell">
+                <div class="code-toolbar">
+                    <span class="code-file-label">Get-ActiveDirectoryUserAudit.ps1</span>
+
+                    <button
+                        class="button button-primary"
+                        type="button"
+                        onclick="copyScript()"
+                    >
+                        Copy Script
+                    </button>
+                </div>
+
+                <pre class="code-block"><code id="script-code">[CmdletBinding()]
+param(
+    [string]$SearchBase,
+
+    [string]$OutputPath = &quot;.\sample-output\active-directory-user-audit.csv&quot;
+)
+
+$ErrorActionPreference = &quot;Stop&quot;
+
+try {
+    Import-Module ActiveDirectory -ErrorAction Stop
+
+    $properties = @(
+        &quot;Department&quot;,
+        &quot;Title&quot;,
+        &quot;Mail&quot;,
+        &quot;PasswordNeverExpires&quot;,
+        &quot;PasswordExpired&quot;,
+        &quot;LastLogonDate&quot;,
+        &quot;Created&quot;,
+        &quot;Modified&quot;
+    )
+
+    $parameters = @{
+        Filter     = &quot;Enabled -eq `$true&quot;
+        Properties = $properties
+    }
+
+    if (-not [string]::IsNullOrWhiteSpace($SearchBase)) {
+        $parameters.SearchBase = $SearchBase
+    }
+
+    $users = Get-ADUser @parameters
+
+    if (-not $users) {
+        throw &quot;No enabled Active Directory users were found.&quot;
+    }
+
+    $report = foreach ($user in $users) {
+        $groups = Get-ADPrincipalGroupMembership -Identity $user |
+            Sort-Object Name |
+            Select-Object -ExpandProperty Name
+
+        [PSCustomObject]@{
+            SamAccountName      = $user.SamAccountName
+            DisplayName         = $user.Name
+            UserPrincipalName   = $user.UserPrincipalName
+            Email               = $user.Mail
+            Department          = $user.Department
+            Title               = $user.Title
+            Enabled             = $user.Enabled
+            PasswordNeverExpires = $user.PasswordNeverExpires
+            PasswordExpired     = $user.PasswordExpired
+            LastLogonDate       = $user.LastLogonDate
+            Created             = $user.Created
+            Modified            = $user.Modified
+            DistinguishedName   = $user.DistinguishedName
+            GroupMembership     = $groups -join &quot;; &quot;
+        }
+    }
+
+    $outputDirectory = Split-Path $OutputPath -Parent
+
+    if ($outputDirectory -and -not (Test-Path $outputDirectory)) {
+        New-Item -ItemType Directory -Path $outputDirectory -Force | Out-Null
+    }
+
+    $report |
+        Sort-Object DisplayName |
+        Export-Csv -Path $OutputPath -NoTypeInformation
+
+    Write-Host &quot;Users audited: $($report.Count)&quot;
+    Write-Host &quot;Report created: $OutputPath&quot;
+}
+catch {
+    Write-Error &quot;Unable to create the Active Directory audit: $($_.Exception.Message)&quot;
+    exit 1
+}
+</code></pre>
+
+                <p id="copy-status" class="copy-status" aria-live="polite"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div>
+                <p>&copy; <span id="current-year"></span></p>
+                <p>Adam Thomas</p>
+                <p>Baytown, Texas</p>
+            </div>
+
+            <p>Built with HTML, CSS, JavaScript, Git, and GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+    <script>
+        async function copyScript() {
+            const code = document.getElementById("script-code").innerText;
+            const status = document.getElementById("copy-status");
+
+            try {
+                await navigator.clipboard.writeText(code);
+                status.textContent = "Script copied to clipboard."
+            }
+            catch (error) {
+                status.textContent = "Copy failed. Select the code and copy it manually."
+            }
+        }
+    </script>
+</body>
+</html>

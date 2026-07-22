@@ -16,6 +16,10 @@ Connects to a remote Windows computer, measures disk usage for folders under C:\
 
 Reads CSV files, extracts messages from a selected column, groups matching messages, counts occurrences, and exports a summary.
 
+
+### Get-ActiveDirectoryUserAudit.ps1
+
+Audits enabled Active Directory users and exports identity details, password status, last logon information, and group membership to CSV.
 ### Rename-ImagesFromCsv.ps1
 
 Reads image filenames from a folder, creates an editable CSV template, previews proposed changes, and renames files in bulk.
@@ -45,3 +49,4 @@ All public scripts and examples are sanitized. Organization names, usernames, se
 ## Author
 
 Adam Thomas
+

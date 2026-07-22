@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Browse Adam Thomas's PowerShell Administration Toolkit scripts, documentation, and sanitized sample output."
+    >
+
+    <title>PowerShell Toolkit | Adam Thomas</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container navigation">
+            <a class="site-name" href="../index.html">Adam Thomas</a>
+
+            <nav aria-label="Primary navigation">
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a class="active" href="../projects.html">Projects</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">Automation Portfolio</p>
+                <h1>PowerShell Administration Toolkit</h1>
+
+                <p class="hero-summary">
+                    Sanitized PowerShell scripts for systems administration,
+                    reporting, identity auditing, CSV analysis, and file automation.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="../projects/powershell-toolkit.html">
+                        View Case Study
+                    </a>
+
+                    <a class="button button-secondary" href="../projects.html">
+                        Back to Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Included Scripts</p>
+                    <h2>Administrative automation examples</h2>
+
+                    <p>
+                        Each script includes documentation, usage examples,
+                        safety considerations, and sanitized sample output.
+                    </p>
+                </div>
+
+                <div class="project-grid">
+                    <article class="project-card">
+                        <p class="project-type">Identity Administration</p>
+                        <h3>Active Directory User Audit</h3>
+
+                        <p>
+                            Audits enabled accounts, identity attributes, password
+                            status, last logon information, and group membership.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a class="button button-primary" href="docs/Get-ActiveDirectoryUserAudit.md">
+                                Documentation
+                            </a>
+
+                            <a class="button button-secondary" href="view-Get-ActiveDirectoryUserAudit.html">
+                                View Script
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="project-type">Systems Reporting</p>
+                        <h3>Remote User Disk Usage</h3>
+
+                        <p>
+                            Measures user-profile storage on a remote Windows
+                            computer and exports sorted results to CSV.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a class="button button-primary" href="docs/Get-RemoteUserDiskUsage.md">
+                                Documentation
+                            </a>
+
+                            <a class="button button-secondary" href="view-Get-RemoteUserDiskUsage.html">
+                                View Script
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="project-type">Data Processing</p>
+                        <h3>Message Summary</h3>
+
+                        <p>
+                            Reads CSV files, extracts selected messages, groups
+                            duplicates, and ranks them by occurrence.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a class="button button-primary" href="docs/Get-MessageSummary.md">
+                                Documentation
+                            </a>
+
+                            <a class="button button-secondary" href="view-Get-MessageSummary.html">
+                                View Script
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="project-type">File Automation</p>
+                        <h3>Rename Images from CSV</h3>
+
+                        <p>
+                            Creates an editable filename mapping and performs
+                            validated bulk image renames with WhatIf support.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a class="button button-primary" href="docs/Rename-ImagesFromCsv.md">
+                                Documentation
+                            </a>
+
+                            <a class="button button-secondary" href="view-Rename-ImagesFromCsv.html">
+                                View Script
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Sample Results</p>
+                    <h2>Sanitized output files</h2>
+
+                    <p>
+                        Demonstration reports use fictional users, sample computers,
+                        generic paths, and nonproduction data.
+                    </p>
+                </div>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="sample-output/active-directory-user-audit.csv">
+                        AD Audit Sample
+                    </a>
+
+                    <a class="button button-secondary" href="sample-output/disk-usage-report.csv">
+                        Disk Usage Sample
+                    </a>
+
+                    <a class="button button-secondary" href="sample-output/rename-images.csv">
+                        Rename CSV Sample
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div>
+                <p>&copy; <span id="current-year"></span></p>
+                <p>Adam Thomas</p>
+                <p>Baytown, Texas</p>
+
+                <p>
+                    <a href="mailto:adam.thomas9891@gmail.com">
+                        adam.thomas9891@gmail.com
+                    </a>
+                </p>
+            </div>
+
+            <p>Built with HTML, CSS, JavaScript, Git, and GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
+

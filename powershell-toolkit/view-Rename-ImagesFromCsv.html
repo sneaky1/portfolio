@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rename-ImagesFromCsv.ps1 | Adam Thomas</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+        .code-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .code-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .code-block {
+            overflow-x: auto;
+            max-height: 750px;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: #0f172a;
+            color: #e2e8f0;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+        }
+
+        .code-block code {
+            font-family: Consolas, Monaco, "Courier New", monospace;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            white-space: pre;
+        }
+
+        .code-file-label {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .copy-status {
+            min-height: 1.5rem;
+            margin-top: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container navigation">
+            <a class="site-name" href="../index.html">Adam Thomas</a>
+
+            <nav aria-label="Primary navigation">
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a class="active" href="../projects.html">Projects</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">PowerShell Script</p>
+                <h1>Rename-ImagesFromCsv.ps1</h1>
+
+                <p class="hero-summary">
+                    Reads image filenames from a folder, creates an editable CSV mapping,
+                    and performs validated bulk renaming with WhatIf support.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="index.html">
+                        Back to Toolkit
+                    </a>
+
+                    <a class="button button-secondary" href="docs\Rename-ImagesFromCsv.md">
+                        View Documentation
+                    </a>
+
+                    <a class="button button-secondary" href="scripts/Rename-ImagesFromCsv.ps1">
+                        View Raw Script
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container code-shell">
+                <div class="code-toolbar">
+                    <span class="code-file-label">Rename-ImagesFromCsv.ps1</span>
+
+                    <button
+                        class="button button-primary"
+                        type="button"
+                        onclick="copyScript()"
+                    >
+                        Copy Script
+                    </button>
+                </div>
+
+                <pre class="code-block"><code id="script-code">[CmdletBinding(SupportsShouldProcess)]
+param(
+    [Parameter(Mandatory)]
+    [string]$FolderPath,
+
+    [string]$CsvPath = &quot;.\rename-images.csv&quot;,
+
+    [ValidateSet(&quot;CreateCsv&quot;, &quot;Rename&quot;)]
+    [string]$Mode = &quot;CreateCsv&quot;
+)
+
+$ErrorActionPreference = &quot;Stop&quot;
+
+$supportedExtensions = @(
+    &quot;.jpg&quot;,
+    &quot;.jpeg&quot;,
+    &quot;.png&quot;,
+    &quot;.gif&quot;,
+    &quot;.bmp&quot;,
+    &quot;.webp&quot;,
+    &quot;.tif&quot;,
+    &quot;.tiff&quot;
+)
+
+try {
+    $resolvedFolder = Resolve-Path -Path $FolderPath
+
+    if ($Mode -eq &quot;CreateCsv&quot;) {
+        $files = Get-ChildItem -Path $resolvedFolder -File |
+            Where-Object {
+                $supportedExtensions -contains $_.Extension.ToLowerInvariant()
+            } |
+            Sort-Object Name
+
+        if (-not $files) {
+            throw &quot;No supported image files were found in $resolvedFolder.&quot;
+        }
+
+        $files |
+            ForEach-Object {
+                [PSCustomObject]@{
+                    CurrentName = $_.Name
+                    NewName     = $_.Name
+                }
+            } |
+            Export-Csv -Path $CsvPath -NoTypeInformation
+
+        Write-Host &quot;CSV template created: $CsvPath&quot;
+        Write-Host &quot;Images found: $($files.Count)&quot;
+        Write-Host &quot;Edit the NewName column, save the CSV, and run the script in Rename mode.&quot;
+        return
+    }
+
+    if (-not (Test-Path -Path $CsvPath -PathType Leaf)) {
+        throw &quot;CSV file not found: $CsvPath&quot;
+    }
+
+    $renameList = Import-Csv -Path $CsvPath
+
+    if (-not $renameList) {
+        throw &quot;The CSV file contains no rename records.&quot;
+    }
+
+    $requiredColumns = @(&quot;CurrentName&quot;, &quot;NewName&quot;)
+    $csvColumns = $renameList[0].PSObject.Properties.Name
+
+    foreach ($column in $requiredColumns) {
+        if ($column -notin $csvColumns) {
+            throw &quot;The CSV is missing the required column: $column&quot;
+        }
+    }
+
+    $operations = foreach ($record in $renameList) {
+        $currentName = $record.CurrentName.Trim()
+        $newName = $record.NewName.Trim()
+
+        if ([string]::IsNullOrWhiteSpace($currentName) -or
+            [string]::IsNullOrWhiteSpace($newName) -or
+            $currentName -eq $newName) {
+            continue
+        }
+
+        $sourcePath = Join-Path $resolvedFolder $currentName
+        $destinationPath = Join-Path $resolvedFolder $newName
+
+        if (-not (Test-Path -LiteralPath $sourcePath -PathType Leaf)) {
+            Write-Warning &quot;Source file not found: $currentName&quot;
+            continue
+        }
+
+        if (Test-Path -LiteralPath $destinationPath) {
+            Write-Warning &quot;Destination already exists: $newName&quot;
+            continue
+        }
+
+        [PSCustomObject]@{
+            CurrentName     = $currentName
+            NewName         = $newName
+            SourcePath      = $sourcePath
+            DestinationPath = $destinationPath
+        }
+    }
+
+    if (-not $operations) {
+        Write-Host &quot;No valid rename operations were found.&quot;
+        return
+    }
+
+    Write-Host &quot;&quot;
+    Write-Host &quot;Proposed rename operations:&quot;
+    $operations | Format-Table CurrentName, NewName -AutoSize
+
+    foreach ($operation in $operations) {
+        if ($PSCmdlet.ShouldProcess(
+            $operation.SourcePath,
+            &quot;Rename to $($operation.NewName)&quot;
+        )) {
+            Rename-Item `
+                -LiteralPath $operation.SourcePath `
+                -NewName $operation.NewName
+        }
+    }
+
+    Write-Host &quot;Rename operation completed.&quot;
+}
+catch {
+    Write-Error &quot;Unable to process image renaming: $($_.Exception.Message)&quot;
+    exit 1
+}
+</code></pre>
+
+                <p id="copy-status" class="copy-status" aria-live="polite"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div>
+                <p>&copy; <span id="current-year"></span></p>
+                <p>Adam Thomas</p>
+                <p>Baytown, Texas</p>
+            </div>
+
+            <p>Built with HTML, CSS, JavaScript, Git, and GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+    <script>
+        async function copyScript() {
+            const code = document.getElementById("script-code").innerText;
+            const status = document.getElementById("copy-status");
+
+            try {
+                await navigator.clipboard.writeText(code);
+                status.textContent = "Script copied to clipboard."
+            }
+            catch (error) {
+                status.textContent = "Copy failed. Select the code and copy it manually."
+            }
+        }
+    </script>
+</body>
+</html>
