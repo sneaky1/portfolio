@@ -152,6 +152,12 @@ document.addEventListener("DOMContentLoaded", () => {
             keywords: "active directory sample results users"
         },
         {
+            title: "Message Summary Sample",
+            type: "Sample Result",
+            url: "powershell-toolkit/view-sample-message-summary.html",
+            keywords: "message summary sample results errors frequency csv"
+        },
+        {
             title: "About Adam Thomas",
             type: "Page",
             url: "about.html",
@@ -255,4 +261,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
 
