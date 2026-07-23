@@ -253,6 +253,53 @@ document.addEventListener("DOMContentLoaded", () => {
             url: "sql-reporting/view-sample-parameterized-term-enrollment.html",
             keywords: "sql parameterized term sample results organization level course"
         },
+        {
+            title: "Capabilities and Technical Skills",
+            type: "Professional Profile",
+            url: "capabilities.html",
+            keywords: "skills capabilities active directory powershell sql windows server google workspace technical support systems administration identity access application development"
+        },
+        {
+            title: "Professional Experience",
+            type: "Professional Profile",
+            url: "experience.html",
+            keywords: "experience systems administration active directory google workspace powershell sql technical support application development data reporting training identity access windows server"
+        },
+        {
+            title: "SOC Analyst Bootcamp Certificate",
+            type: "Cybersecurity Training",
+            url: "experience.html",
+            keywords: "soc analyst bootcamp certificate cybersecurity security operations incident response alert investigation logs threat detection 5 cpe"
+        },
+        {
+            title: "Certifications and Training",
+            type: "Professional Credentials",
+            url: "certifications.html",
+            keywords: "certifications cybersecurity training isc2 certified in cybersecurity cc soc security operations center bootcamp cpe"
+        },
+        {
+            title: "ISC2 Certified in Cybersecurity",
+            type: "Certification",
+            url: "certifications.html",
+            keywords: "isc2 certified cybersecurity cc certification security access control network operations"
+        },
+        {
+            title: "Security Operations Center Bootcamp",
+            type: "Cybersecurity Training",
+            url: "certifications.html",
+            keywords: "soc bootcamp certificate participation security operations center five hours 5 cpe incident response logs alerts"
+        },
+        {
+            title: "Technical Resume",
+            type: "Resume",
+            url: "resume.html",
+            keywords: "resume systems administrator technical support powershell sql active directory google workspace windows server cybersecurity experience"
+        },
+
+
+
+
+
 
         {
             title: "About Adam Thomas",
@@ -358,6 +405,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+
+
+
 
 
 

@@ -690,3 +690,249 @@ nav a:focus {
         font-size: 0.72rem;
     }
 }
+
+/* Align card buttons across project grids */
+
+.project-grid {
+    align-items: stretch;
+}
+
+.project-grid .project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-grid .project-card .hero-actions {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+/* Credential detail lists */
+
+.credential-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.credential-details div {
+    padding: 1rem;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 0.5rem;
+}
+
+.credential-details dt {
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+}
+
+.credential-details dd {
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .credential-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Printable resume */
+
+.resume-container {
+    max-width: 950px;
+}
+
+.resume-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.resume-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color, #d1d5db);
+}
+
+.resume-header h1 {
+    margin-bottom: 0.25rem;
+}
+
+.resume-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.resume-section {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-color, #d1d5db);
+}
+
+.resume-section:last-child {
+    border-bottom: 0;
+}
+
+.resume-section h2 {
+    margin-bottom: 0.75rem;
+}
+
+.resume-entry {
+    margin-bottom: 1.25rem;
+}
+
+.resume-entry:last-child {
+    margin-bottom: 0;
+}
+
+.resume-entry-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.resume-entry-heading h3,
+.resume-entry-heading p {
+    margin-top: 0;
+}
+
+.resume-skills p {
+    margin-bottom: 0.75rem;
+}
+
+@media (max-width: 700px) {
+    .resume-entry-heading {
+        display: block;
+    }
+}
+
+@media print {
+    .site-header,
+    .site-footer,
+    .resume-actions {
+        display: none !important;
+    }
+
+    html,
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        color: #000000;
+        font-size: 9.25pt;
+        line-height: 1.22;
+    }
+
+    .resume-page,
+    .resume-container,
+    .resume-page .section {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .resume-header {
+        padding: 0 0 0.3rem;
+        margin: 0 0 0.25rem;
+        border-bottom: 1.5px solid #000000;
+        text-align: center;
+    }
+
+    .resume-header h1 {
+        margin: 0;
+        font-size: 20pt;
+        line-height: 1;
+    }
+
+    .resume-header p {
+        margin: 0.12rem 0;
+    }
+
+    .resume-title {
+        font-size: 11pt;
+        font-weight: 700;
+    }
+
+    .resume-section {
+        padding: 0.3rem 0;
+        margin: 0;
+        border-bottom: 1px solid #b8b8b8;
+    }
+
+    .resume-section:last-child {
+        border-bottom: 0;
+    }
+
+    .resume-section h2 {
+        margin: 0 0 0.18rem;
+        font-size: 12pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+    }
+
+    .resume-entry {
+        margin: 0 0 0.28rem;
+        padding: 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .resume-entry:last-child {
+        margin-bottom: 0;
+    }
+
+    .resume-entry h3 {
+        margin: 0 0 0.08rem;
+        font-size: 10pt;
+        line-height: 1.15;
+    }
+
+    .resume-entry-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .resume-entry-heading h3,
+    .resume-entry-heading p {
+        margin-top: 0;
+        margin-bottom: 0.08rem;
+    }
+
+    .resume-section p,
+    .resume-entry p,
+    .resume-skills p {
+        margin: 0.08rem 0 0.18rem;
+    }
+
+    .resume-section ul {
+        margin: 0.12rem 0 0.2rem 1rem;
+        padding: 0;
+    }
+
+    .resume-section li {
+        margin: 0 0 0.08rem;
+        padding: 0;
+    }
+
+    .resume-skills p {
+        line-height: 1.18;
+    }
+
+    a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    @page {
+        size: letter;
+        margin: 0.35in 0.45in;
+    }
+}
+
