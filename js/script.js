@@ -567,3 +567,123 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 });
 
+
+// Automatic active-page navigation
+
+document.addEventListener("DOMContentLoaded", function () {
+    const navigation = document.getElementById("primary-navigation");
+
+    if (!navigation) {
+        return;
+    }
+
+    const currentPath = window.location.pathname
+        .replace(/\\/g, "/")
+        .replace(/\/+$/, "");
+
+    const currentFile = currentPath.split("/").pop() || "index.html";
+
+    const topLevelLinks = navigation.querySelectorAll(":scope > a");
+    const dropdowns = navigation.querySelectorAll(":scope > .nav-dropdown");
+
+    topLevelLinks.forEach(function (link) {
+        link.classList.remove("active");
+        link.removeAttribute("aria-current");
+    });
+
+    dropdowns.forEach(function (dropdown) {
+        const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+
+        if (toggle) {
+            toggle.classList.remove("active");
+        }
+
+        dropdown
+            .querySelectorAll(".nav-dropdown-menu a")
+            .forEach(function (link) {
+                link.classList.remove("active");
+                link.removeAttribute("aria-current");
+            });
+    });
+
+    function normalizeLinkPath(link) {
+        const url = new URL(link.href, window.location.href);
+
+        return url.pathname
+            .replace(/\\/g, "/")
+            .replace(/\/+$/, "");
+    }
+
+    function markLinkActive(link) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+    }
+
+    let directMatchFound = false;
+
+    navigation.querySelectorAll("a").forEach(function (link) {
+        const linkPath = normalizeLinkPath(link);
+
+        const exactMatch =
+            currentPath === linkPath ||
+            (
+                currentFile === "index.html" &&
+                linkPath.endsWith("/portfolio")
+            );
+
+        if (exactMatch) {
+            markLinkActive(link);
+            directMatchFound = true;
+
+            const parentDropdown = link.closest(".nav-dropdown");
+
+            if (parentDropdown) {
+                const toggle = parentDropdown.querySelector(
+                    ".nav-dropdown-toggle"
+                );
+
+                if (toggle) {
+                    toggle.classList.add("active");
+                }
+            }
+        }
+    });
+
+    const projectPage =
+        currentPath.includes("/projects/") ||
+        currentPath.includes("/powershell-toolkit/") ||
+        currentPath.includes("/sql-reporting/") ||
+        currentFile === "projects.html";
+
+    const resourcePage =
+        currentFile === "resume.html" ||
+        currentFile === "gallery.html";
+
+    dropdowns.forEach(function (dropdown) {
+        const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+
+        if (!toggle) {
+            return;
+        }
+
+        const label = toggle.textContent.trim().toLowerCase();
+
+        if (label === "projects" && projectPage) {
+            toggle.classList.add("active");
+        }
+
+        if (label === "resources" && resourcePage) {
+            toggle.classList.add("active");
+        }
+    });
+
+    if (!directMatchFound && currentFile === "") {
+        const homeLink = navigation.querySelector(
+            'a[href$="index.html"]'
+        );
+
+        if (homeLink) {
+            markLinkActive(homeLink);
+        }
+    }
+});

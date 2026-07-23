@@ -1459,3 +1459,52 @@ body.mobile-navigation-open {
         display: none;
     }
 }
+
+/* Active-page navigation */
+
+.site-nav > a.active,
+.nav-dropdown-toggle.active {
+    color: #0b5fa5;
+    font-weight: 700;
+}
+
+.site-nav > a.active {
+    position: relative;
+}
+
+.site-nav > a.active::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -0.45rem;
+    left: 0;
+    height: 3px;
+    border-radius: 999px;
+    background: currentColor;
+}
+
+.nav-dropdown-menu a.active {
+    color: #0b5fa5;
+    font-weight: 700;
+    background: #eaf1f7;
+}
+
+@media screen and (max-width: 1050px) {
+    .site-nav > a.active::after {
+        top: 0.4rem;
+        right: auto;
+        bottom: 0.4rem;
+        left: 0;
+        width: 3px;
+        height: auto;
+    }
+
+    .site-nav > a.active,
+    .nav-dropdown-toggle.active {
+        background: #eaf1f7;
+    }
+
+    .nav-dropdown-menu a.active {
+        background: #dceaf5;
+    }
+}
