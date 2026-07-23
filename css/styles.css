@@ -1444,3 +1444,18 @@ body.mobile-navigation-open {
         }
     }
 }
+
+/* Hide mobile menu scrollbar while keeping vertical scrolling */
+
+@media screen and (max-width: 1050px) {
+    #primary-navigation.mobile-menu-open {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    #primary-navigation.mobile-menu-open::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+}
