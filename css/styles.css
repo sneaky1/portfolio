@@ -936,3 +936,197 @@ nav a:focus {
     }
 }
 
+
+/* Mobile navigation upgrade */
+
+.mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 44px;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mobile-menu-icon {
+    display: grid;
+    gap: 4px;
+    width: 21px;
+}
+
+.mobile-menu-icon span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.mobile-menu-toggle[aria-expanded="true"]
+.mobile-menu-icon span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-menu-toggle[aria-expanded="true"]
+.mobile-menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle[aria-expanded="true"]
+.mobile-menu-icon span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+.site-nav a:focus-visible,
+.nav-dropdown-toggle:focus-visible,
+.mobile-menu-toggle:focus-visible,
+.site-search input:focus-visible,
+.site-search button:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+}
+
+body.mobile-navigation-open {
+    overflow: hidden;
+}
+
+@media (max-width: 1050px) {
+    .navigation {
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .mobile-menu-toggle {
+        display: inline-flex;
+        margin-left: auto;
+    }
+
+    .site-nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        left: 0;
+        z-index: 1000;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+        width: 100%;
+        max-height: calc(100vh - 6rem);
+        padding: 1rem;
+        overflow-y: auto;
+        border: 1px solid var(--border-color, #d1d5db);
+        border-radius: 0.75rem;
+        background: var(--background-color, #ffffff);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .site-nav.mobile-menu-open {
+        display: flex;
+    }
+
+    .site-nav > a,
+    .nav-dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 44px;
+        padding: 0.7rem 0.8rem;
+        border-radius: 0.45rem;
+        text-align: left;
+    }
+
+    .nav-dropdown {
+        width: 100%;
+    }
+
+    .nav-dropdown-toggle::after {
+        content: "+";
+        margin-left: auto;
+        font-size: 1.25rem;
+        line-height: 1;
+    }
+
+    .nav-dropdown-toggle[aria-expanded="true"]::after {
+        content: "−";
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        display: none;
+        width: 100%;
+        min-width: 0;
+        margin: 0.25rem 0 0.5rem;
+        padding: 0.35rem 0 0.35rem 0.75rem;
+        border: 0;
+        box-shadow: none;
+    }
+
+    .nav-dropdown-toggle[aria-expanded="true"]
+    + .nav-dropdown-menu {
+        display: grid;
+        gap: 0.15rem;
+    }
+
+    .nav-dropdown-menu a {
+        display: block;
+        min-height: 40px;
+        padding: 0.6rem 0.75rem;
+    }
+
+    .site-search {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .site-search input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .search-results-panel {
+        top: calc(100% + 0.35rem);
+        right: 0;
+        left: 0;
+        width: 100%;
+        max-height: 45vh;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .site-name {
+        max-width: calc(100% - 100px);
+    }
+
+    .mobile-menu-text {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        width: 46px;
+        padding-right: 0.7rem;
+        padding-left: 0.7rem;
+    }
+
+    .site-nav {
+        right: -0.25rem;
+        left: -0.25rem;
+        width: auto;
+        border-radius: 0.5rem;
+    }
+}

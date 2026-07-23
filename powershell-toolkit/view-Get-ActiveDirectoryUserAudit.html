@@ -59,8 +59,23 @@
     <header class="site-header">
   <div class="container navigation">
     <a class="site-name" href="../index.html">Adam Thomas</a>
+            <button
+                class="mobile-menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="primary-navigation"
+                aria-label="Open navigation menu"
+            >
+                <span class="mobile-menu-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
 
-    <nav class="site-nav" aria-label="Primary navigation">
+                <span class="mobile-menu-text">Menu</span>
+            </button>
+
+    <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation">
       <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
                 <a href="../capabilities.html">Capabilities</a>
@@ -334,6 +349,7 @@ catch {
     </script>
 </body>
 </html>
+
 
 
 
