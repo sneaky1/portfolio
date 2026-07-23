@@ -19,30 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", (event) => {
             event.stopPropagation();
 
-            const mobileDropdownLayout = window.matchMedia(
-                "(max-width: 1050px)"
-            ).matches;
+            dropdowns.forEach((otherDropdown) => {
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove("open");
 
-            // On desktop, keep only one dropdown open at a time.
-            // On mobile, allow Projects and Resources to remain open together.
-            if (!mobileDropdownLayout) {
-                dropdowns.forEach((otherDropdown) => {
-                    if (otherDropdown !== dropdown) {
-                        otherDropdown.classList.remove("open");
+                    const otherButton = otherDropdown.querySelector(
+                        ".nav-dropdown-toggle"
+                    );
 
-                        const otherButton = otherDropdown.querySelector(
-                            ".nav-dropdown-toggle"
-                        );
-
-                        if (otherButton) {
-                            otherButton.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
-                        }
+                    if (otherButton) {
+                        otherButton.setAttribute("aria-expanded", "false");
                     }
-                });
-            }
+                }
+            });
 
             const isOpen = dropdown.classList.toggle("open");
             button.setAttribute("aria-expanded", String(isOpen));
@@ -566,4 +555,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     );
 });
-
