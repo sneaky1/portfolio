@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Parameterized Term Report Sample Results | Adam Thomas</title>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="site-name" href="../index.html">Adam Thomas</a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle active"
+            type="button"
+            aria-expanded="false"
+          >
+            Projects
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../projects.html">All Projects</a>
+
+            <a href="../projects/chromebook-repair.html">
+              Chromebook Repair System
+            </a>
+
+            <a href="../projects/powershell-toolkit.html">
+              PowerShell Toolkit Case Study
+            </a>
+
+            <a href="../powershell-toolkit/index.html">
+              Browse PowerShell Toolkit
+            </a>
+
+            <a href="index.html">
+              SQL Reporting Portfolio
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            Resources
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../gallery.html">Screenshot Gallery</a>
+
+            <a href="../powershell-toolkit/index.html#included-scripts">
+              PowerShell Scripts
+            </a>
+
+            <a href="../powershell-toolkit/index.html#sample-results">
+              Sample Results
+            </a>
+          </div>
+        </div>
+
+        <a href="../contact.html">Contact</a>
+
+        <form
+          class="site-search"
+          role="search"
+          data-root="../"
+        >
+          <label class="sr-only" for="site-search-input">
+            Search portfolio
+          </label>
+
+          <input
+            id="site-search-input"
+            type="search"
+            placeholder="Search portfolio"
+            autocomplete="off"
+          >
+
+          <button type="submit" aria-label="Search">
+            &#128269;
+          </button>
+
+          <div
+            class="search-results-panel"
+            aria-live="polite"
+          ></div>
+        </form>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-small">
+      <div class="container">
+        <p class="eyebrow">Sample Results</p>
+
+        <h1>Parameterized Term Enrollment Report</h1>
+
+        <p>
+          Fictional sample records demonstrating optional term, organization,
+          and level-range filtering.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="button button-primary"
+            href="view-parameterized-term-enrollment.html"
+          >
+            View Query
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="view-doc-parameterized-term-enrollment.html"
+          >
+            View Documentation
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="sample-output/parameterized-term-enrollment.csv"
+          >
+            Download Sample CSV
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="index.html"
+          >
+            Back to SQL Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <article class="project-card">
+          <p class="project-type">
+            Sanitized Data • Optional Filters • Fictional Results
+          </p>
+
+          <h2>Sample Enrollment Results</h2>
+
+          <p>
+            These records are fictional and contain no real personal,
+            organizational, course, or term information.
+          </p>
+
+          <h3>Choose Columns</h3>
+
+          <div class="column-controls" aria-label="Table column controls">
+            <label>
+              <input type="checkbox" data-column="0" checked>
+              Person Number
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="1" checked>
+              Name
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="2" checked>
+              Level
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="3" checked>
+              Organization
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="4" checked>
+              Term
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="5" checked>
+              Course Code
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="6" checked>
+              Course Name
+            </label>
+          </div>
+
+          <div class="table-wrapper">
+            <table id="parameterized-term-table">
+              <thead>
+                <tr>
+                  <th>Person Number</th>
+                  <th>Name</th>
+                  <th>Level</th>
+                  <th>Organization</th>
+                  <th>Term</th>
+                  <th>Course Code</th>
+                  <th>Course Name</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>810001</td>
+                  <td>Grace Adams</td>
+                  <td>6</td>
+                  <td>Central Learning Center</td>
+                  <td>Fall Term</td>
+                  <td>TECH101</td>
+                  <td>Technology Foundations</td>
+                </tr>
+
+                <tr>
+                  <td>810002</td>
+                  <td>Lucas Brown</td>
+                  <td>6</td>
+                  <td>Central Learning Center</td>
+                  <td>Fall Term</td>
+                  <td>MATH120</td>
+                  <td>Applied Mathematics</td>
+                </tr>
+
+                <tr>
+                  <td>810003</td>
+                  <td>Emma Chen</td>
+                  <td>7</td>
+                  <td>North Learning Center</td>
+                  <td>Fall Term</td>
+                  <td>SCI210</td>
+                  <td>Life Science</td>
+                </tr>
+
+                <tr>
+                  <td>810004</td>
+                  <td>Henry Davis</td>
+                  <td>7</td>
+                  <td>North Learning Center</td>
+                  <td>Spring Term</td>
+                  <td>ENG220</td>
+                  <td>Communication Skills</td>
+                </tr>
+
+                <tr>
+                  <td>810005</td>
+                  <td>Sophia Garcia</td>
+                  <td>8</td>
+                  <td>West Learning Center</td>
+                  <td>Spring Term</td>
+                  <td>CS310</td>
+                  <td>Computer Science Concepts</td>
+                </tr>
+
+                <tr>
+                  <td>810006</td>
+                  <td>James Wilson</td>
+                  <td>8</td>
+                  <td>West Learning Center</td>
+                  <td>Spring Term</td>
+                  <td>MEDIA320</td>
+                  <td>Digital Media</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <p>&copy; <span id="current-year"></span> Adam Thomas</p>
+        <p>Baytown, Texas</p>
+      </div>
+
+      <div>
+        <p>
+          Email:
+          <a href="mailto:adam.thomas9891@gmail.com">
+            adam.thomas9891@gmail.com
+          </a>
+        </p>
+
+        <p>
+          GitHub:
+          <a
+            href="https://github.com/sneaky1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/sneaky1
+          </a>
+        </p>
+      </div>
+
+      <p>
+        Built with HTML, CSS, JavaScript, Git, and GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll("[data-column]").forEach(function (checkbox) {
+      checkbox.addEventListener("change", function () {
+        const columnIndex = Number(this.dataset.column);
+        const table = document.getElementById("parameterized-term-table");
+
+        if (!table) {
+          return;
+        }
+
+        table.querySelectorAll("tr").forEach(function (row) {
+          const cell = row.children[columnIndex];
+
+          if (cell) {
+            cell.classList.toggle(
+              "column-hidden",
+              !checkbox.checked
+            );
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

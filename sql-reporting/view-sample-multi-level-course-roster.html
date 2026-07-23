@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Course Roster Sample Results | Adam Thomas</title>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="site-name" href="../index.html">Adam Thomas</a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle active"
+            type="button"
+            aria-expanded="false"
+          >
+            Projects
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../projects.html">All Projects</a>
+
+            <a href="../projects/chromebook-repair.html">
+              Chromebook Repair System
+            </a>
+
+            <a href="../projects/powershell-toolkit.html">
+              PowerShell Toolkit Case Study
+            </a>
+
+            <a href="../powershell-toolkit/index.html">
+              Browse PowerShell Toolkit
+            </a>
+
+            <a href="index.html">
+              SQL Reporting Portfolio
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            Resources
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../gallery.html">
+              Screenshot Gallery
+            </a>
+
+            <a href="../powershell-toolkit/index.html#included-scripts">
+              PowerShell Scripts
+            </a>
+
+            <a href="../powershell-toolkit/index.html#sample-results">
+              Sample Results
+            </a>
+          </div>
+        </div>
+
+        <a href="../contact.html">Contact</a>
+
+        <form
+          class="site-search"
+          role="search"
+          data-root="../"
+        >
+          <label class="sr-only" for="site-search-input">
+            Search portfolio
+          </label>
+
+          <input
+            id="site-search-input"
+            type="search"
+            placeholder="Search portfolio"
+            autocomplete="off"
+          >
+
+          <button type="submit" aria-label="Search">
+            &#128269;
+          </button>
+
+          <div
+            class="search-results-panel"
+            aria-live="polite"
+          ></div>
+        </form>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-small">
+      <div class="container">
+        <p class="eyebrow">Sample Results</p>
+
+        <h1>Multi-Level Course Roster and Scheduling Report</h1>
+
+        <p>
+          Fictional sample records demonstrating the structure and output of
+          the sanitized reporting query.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="button button-primary"
+            href="view-multi-level-course-roster.html"
+          >
+            View Query
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="view-doc-multi-level-course-roster.html"
+          >
+            View Documentation
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="sample-output/multi-level-course-roster.csv"
+          >
+            Download Sample CSV
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="index.html"
+          >
+            Back to SQL Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <article class="project-card">
+          <p class="project-type">
+            Sanitized Data • Fictional Records • Demonstration Output
+          </p>
+
+          <h2>Sample Query Results</h2>
+
+          <p>
+            These records are fictional and do not contain real student,
+            instructor, school, or organizational information.
+          </p>
+
+          <h3>Choose Columns</h3>
+
+          <div class="column-controls" aria-label="Table column controls">
+            <label>
+              <input type="checkbox" data-column="0" checked>
+              Student ID
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="1" checked>
+              SIS ID
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="2" checked>
+              Name
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="3" checked>
+              Grade
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="4" checked>
+              School
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="5" checked>
+              Course
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="6" checked>
+              Section
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="7" checked>
+              Term
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="8" checked>
+              Instructor
+            </label>
+          </div>
+          <div class="table-wrapper">
+            <table id="roster-results-table">
+              <thead>
+                <tr>
+                  <th>Student ID</th>
+                  <th>SIS ID</th>
+                  <th>Name</th>
+                  <th>Grade</th>
+                  <th>School</th>
+                  <th>Course</th>
+                  <th>Section</th>
+                  <th>Term</th>
+                  <th>Instructor</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>1001</td>
+                  <td>500001</td>
+                  <td>Jordan Lee</td>
+                  <td>5</td>
+                  <td>North Elementary</td>
+                  <td>
+                    ELEMENTARY_PROGRAM<br>
+                    Digital Learning Foundations
+                  </td>
+                  <td>501</td>
+                  <td>Q1</td>
+                  <td>Alex Morgan</td>
+                </tr>
+
+                <tr>
+                  <td>1002</td>
+                  <td>500002</td>
+                  <td>Taylor Nguyen</td>
+                  <td>6</td>
+                  <td>Central Middle School</td>
+                  <td>
+                    GRADE6_PROGRAM_A<br>
+                    Technology Applications
+                  </td>
+                  <td>601</td>
+                  <td>S1</td>
+                  <td>Casey Rivera</td>
+                </tr>
+
+                <tr>
+                  <td>1003</td>
+                  <td>500003</td>
+                  <td>Morgan Patel</td>
+                  <td>7</td>
+                  <td>Central Middle School</td>
+                  <td>
+                    GRADE7_PROGRAM_B<br>
+                    Computer Science Fundamentals
+                  </td>
+                  <td>702</td>
+                  <td>S1</td>
+                  <td>Jamie Clark</td>
+                </tr>
+
+                <tr>
+                  <td>1004</td>
+                  <td>500004</td>
+                  <td>Riley Johnson</td>
+                  <td>8</td>
+                  <td>Central Middle School</td>
+                  <td>
+                    GRADE8_PROGRAM_C<br>
+                    Digital Media and Design
+                  </td>
+                  <td>803</td>
+                  <td>S2</td>
+                  <td>Chris Walker</td>
+                </tr>
+
+                <tr>
+                  <td>1005</td>
+                  <td>500005</td>
+                  <td>Cameron Davis</td>
+                  <td>9</td>
+                  <td>West High School</td>
+                  <td>
+                    SECONDARY_PROGRAM_A<br>
+                    Introduction to Information Technology
+                  </td>
+                  <td>901</td>
+                  <td>S1</td>
+                  <td>Dana Mitchell</td>
+                </tr>
+
+                <tr>
+                  <td>1006</td>
+                  <td>500006</td>
+                  <td>Avery Martinez</td>
+                  <td>10</td>
+                  <td>West High School</td>
+                  <td>
+                    SECONDARY_PROGRAM_C<br>
+                    Cybersecurity Foundations
+                  </td>
+                  <td>1003</td>
+                  <td>S2</td>
+                  <td>Robin Thompson</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+<footer class="site-footer">
+    <div class="container footer-content">
+        <div>
+            <p>&copy; <span id="current-year"></span> Adam Thomas</p>
+            <p>Baytown, Texas</p>
+        </div>
+
+        <div>
+            <p>
+                Email:
+                <a href="mailto:adam.thomas9891@gmail.com">
+                    adam.thomas9891@gmail.com
+                </a>
+            </p>
+
+            <p>
+                GitHub:
+                <a
+                    href="https://github.com/sneaky1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    github.com/sneaky1
+                </a>
+            </p>
+        </div>
+
+        <p>
+            Built with HTML, CSS, JavaScript, Git, and GitHub Pages.
+        </p>
+    </div>
+</footer>
+
+  <script>
+    document.querySelectorAll("[data-column]").forEach(function (checkbox) {
+      checkbox.addEventListener("change", function () {
+        const columnIndex = Number(this.dataset.column);
+        const table = document.getElementById("roster-results-table");
+
+        if (!table) {
+          return;
+        }
+
+        table.querySelectorAll("tr").forEach(function (row) {
+          const cell = row.children[columnIndex];
+
+          if (cell) {
+            cell.classList.toggle("column-hidden", !checkbox.checked);
+          }
+        });
+      });
+    });
+  </script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
+
+
+

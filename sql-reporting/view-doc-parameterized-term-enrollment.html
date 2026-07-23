@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Parameterized Term Report Documentation | Adam Thomas</title>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="site-name" href="../index.html">Adam Thomas</a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle active"
+            type="button"
+            aria-expanded="false"
+          >
+            Projects
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../projects.html">All Projects</a>
+
+            <a href="../projects/chromebook-repair.html">
+              Chromebook Repair System
+            </a>
+
+            <a href="../projects/powershell-toolkit.html">
+              PowerShell Toolkit Case Study
+            </a>
+
+            <a href="../powershell-toolkit/index.html">
+              Browse PowerShell Toolkit
+            </a>
+
+            <a href="index.html">
+              SQL Reporting Portfolio
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            Resources
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../gallery.html">Screenshot Gallery</a>
+
+            <a href="../powershell-toolkit/index.html#included-scripts">
+              PowerShell Scripts
+            </a>
+
+            <a href="../powershell-toolkit/index.html#sample-results">
+              Sample Results
+            </a>
+          </div>
+        </div>
+
+        <a href="../contact.html">Contact</a>
+
+        <form
+          class="site-search"
+          role="search"
+          data-root="../"
+        >
+          <label class="sr-only" for="site-search-input">
+            Search portfolio
+          </label>
+
+          <input
+            id="site-search-input"
+            type="search"
+            placeholder="Search portfolio"
+            autocomplete="off"
+          >
+
+          <button type="submit" aria-label="Search">
+            &#128269;
+          </button>
+
+          <div
+            class="search-results-panel"
+            aria-live="polite"
+          ></div>
+        </form>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-small">
+      <div class="container">
+        <p class="eyebrow">Query Documentation</p>
+
+        <h1>Parameterized Term Enrollment Report</h1>
+
+        <p>
+          Documentation for a reusable Oracle SQL report with optional term,
+          organization, and level-range filters.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="button button-primary"
+            href="view-parameterized-term-enrollment.html"
+          >
+            View Query
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="view-sample-parameterized-term-enrollment.html"
+          >
+            View Sample Results
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="index.html"
+          >
+            Back to SQL Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <article class="project-card">
+          <h2>Overview</h2>
+
+          <p>
+            This sanitized Oracle SQL example demonstrates a reusable
+            enrollment report with optional term, organization, and
+            level-range filters.
+          </p>
+
+          <h2>Purpose</h2>
+
+          <p>
+            The report returns active participants for a selected reporting
+            year and allows results to be narrowed by:
+          </p>
+
+          <ul>
+            <li>Term</li>
+            <li>Organization</li>
+            <li>Minimum level</li>
+            <li>Maximum level</li>
+          </ul>
+
+          <h2>Tables Used</h2>
+
+          <ul>
+            <li><code>participants</code></li>
+            <li><code>enrollments</code></li>
+            <li><code>terms</code></li>
+            <li><code>organizations</code></li>
+            <li><code>courses</code></li>
+          </ul>
+
+          <h2>SQL Concepts Demonstrated</h2>
+
+          <ul>
+            <li>Five-table <code>INNER JOIN</code></li>
+            <li>Bind variables</li>
+            <li>Optional parameter filtering</li>
+            <li>Active-record filtering</li>
+            <li>Reporting-year filtering</li>
+            <li>Minimum and maximum range logic</li>
+            <li>Duplicate prevention with <code>DISTINCT</code></li>
+            <li>Multi-column sorting</li>
+          </ul>
+
+          <h2>Parameters</h2>
+
+          <ul>
+            <li><code>:reporting_year_id</code></li>
+            <li><code>:term_id</code></li>
+            <li><code>:organization_id</code></li>
+            <li><code>:level_min</code></li>
+            <li><code>:level_max</code></li>
+          </ul>
+
+          <p>
+            The reporting year is required. The remaining parameters are
+            optional.
+          </p>
+
+          <h2>Optional Filter Pattern</h2>
+
+          <pre><code>:term_id IS NULL
+OR trm.term_id = :term_id</code></pre>
+
+          <p>
+            When the parameter is null, the condition does not limit the
+            results. When a value is supplied, only matching records are
+            returned.
+          </p>
+
+          <h2>Level Range Logic</h2>
+
+          <ul>
+            <li>
+              Minimum only: returns the selected level and higher.
+            </li>
+            <li>
+              Maximum only: returns the selected level and lower.
+            </li>
+            <li>
+              Both values: returns records within the selected range.
+            </li>
+            <li>
+              Neither value: returns all levels.
+            </li>
+          </ul>
+
+          <h2>Business Logic</h2>
+
+          <p>A record is included when:</p>
+
+          <ol>
+            <li>The participant is active.</li>
+            <li>
+              The enrollment belongs to the selected reporting year.
+            </li>
+            <li>
+              Every optional filter containing a value is satisfied.
+            </li>
+          </ol>
+
+          <h2>Sanitization</h2>
+
+          <p>The public version replaces:</p>
+
+          <ul>
+            <li>Organization names and identifiers</li>
+            <li>Course codes and names</li>
+            <li>Term and reporting-year values</li>
+            <li>Participant information</li>
+            <li>System-specific table and field names</li>
+          </ul>
+
+          <h2>Potential Uses</h2>
+
+          <ul>
+            <li>Enrollment reports</li>
+            <li>Employee training rosters</li>
+            <li>Membership reporting</li>
+            <li>Course participation</li>
+            <li>Department assignments</li>
+            <li>Certification tracking</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <p>&copy; <span id="current-year"></span> Adam Thomas</p>
+        <p>Baytown, Texas</p>
+      </div>
+
+      <div>
+        <p>
+          Email:
+          <a href="mailto:adam.thomas9891@gmail.com">
+            adam.thomas9891@gmail.com
+          </a>
+        </p>
+
+        <p>
+          GitHub:
+          <a
+            href="https://github.com/sneaky1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/sneaky1
+          </a>
+        </p>
+      </div>
+
+      <p>
+        Built with HTML, CSS, JavaScript, Git, and GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

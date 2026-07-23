@@ -1,0 +1,7 @@
+﻿person_number,last_name,first_name,level_code,organization_name,term_name,course_code,course_name
+810001,Adams,Grace,6,Central Learning Center,Fall Term,TECH101,Technology Foundations
+810002,Brown,Lucas,6,Central Learning Center,Fall Term,MATH120,Applied Mathematics
+810003,Chen,Emma,7,North Learning Center,Fall Term,SCI210,Life Science
+810004,Davis,Henry,7,North Learning Center,Spring Term,ENG220,Communication Skills
+810005,Garcia,Sophia,8,West Learning Center,Spring Term,CS310,Computer Science Concepts
+810006,Wilson,James,8,West Learning Center,Spring Term,MEDIA320,Digital Media

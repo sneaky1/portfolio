@@ -182,6 +182,79 @@ document.addEventListener("DOMContentLoaded", () => {
             keywords: "student risk sample results categories"
         },
         {
+            title: "Multi-Level Course Roster and Scheduling Report",
+            type: "SQL Query",
+            url: "sql-reporting/view-multi-level-course-roster.html",
+            keywords: "sql roster scheduling seven table join students courses terms instructors"
+        },
+        {
+            title: "Course Roster Documentation",
+            type: "Documentation",
+            url: "sql-reporting/view-doc-multi-level-course-roster.html",
+            keywords: "sql roster documentation joins filtering grade course rules"
+        },
+        {
+            title: "Course Roster Sample Results",
+            type: "Sample Result",
+            url: "sql-reporting/view-sample-multi-level-course-roster.html",
+            keywords: "sql roster sample results interactive columns"
+        },
+        {
+            title: "Course Configuration and Grade-Scale Audit",
+            type: "SQL Query",
+            url: "sql-reporting/view-course-grade-scale-audit.html",
+            keywords: "sql course configuration grade scale audit left join case null"
+        },
+        {
+            title: "Grade-Scale Audit Documentation",
+            type: "Documentation",
+            url: "sql-reporting/view-doc-course-grade-scale-audit.html",
+            keywords: "sql grade scale documentation configuration audit"
+        },
+        {
+            title: "Grade-Scale Audit Sample Results",
+            type: "Sample Result",
+            url: "sql-reporting/view-sample-course-grade-scale-audit.html",
+            keywords: "sql grade scale sample results interactive columns"
+        },
+        {
+            title: "Active Enrollment and Effective-Date Report",
+            type: "SQL Query",
+            url: "sql-reporting/view-active-enrollment-effective-date.html",
+            keywords: "sql active enrollment effective date oracle report date entry exit"
+        },
+        {
+            title: "Active Enrollment Documentation",
+            type: "Documentation",
+            url: "sql-reporting/view-doc-active-enrollment-effective-date.html",
+            keywords: "sql enrollment documentation date logic bind variable"
+        },
+        {
+            title: "Active Enrollment Sample Results",
+            type: "Sample Result",
+            url: "sql-reporting/view-sample-active-enrollment-effective-date.html",
+            keywords: "sql active enrollment sample results dates status columns"
+        },
+        {
+            title: "Parameterized Term Enrollment Report",
+            type: "SQL Query",
+            url: "sql-reporting/view-parameterized-term-enrollment.html",
+            keywords: "sql parameterized term enrollment oracle bind variables optional filters range logic"
+        },
+        {
+            title: "Parameterized Term Report Documentation",
+            type: "Documentation",
+            url: "sql-reporting/view-doc-parameterized-term-enrollment.html",
+            keywords: "sql parameterized term documentation optional filters reporting year"
+        },
+        {
+            title: "Parameterized Term Report Sample Results",
+            type: "Sample Result",
+            url: "sql-reporting/view-sample-parameterized-term-enrollment.html",
+            keywords: "sql parameterized term sample results organization level course"
+        },
+
+        {
             title: "About Adam Thomas",
             type: "Page",
             url: "about.html",
@@ -285,6 +358,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+
+
 
 
 

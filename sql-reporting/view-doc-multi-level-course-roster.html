@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Course Roster Documentation | Adam Thomas</title>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="site-name" href="../index.html">Adam Thomas</a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle active"
+            type="button"
+            aria-expanded="false"
+          >
+            Projects
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../projects.html">All Projects</a>
+            <a href="../projects/chromebook-repair.html">
+              Chromebook Repair System
+            </a>
+            <a href="../projects/powershell-toolkit.html">
+              PowerShell Toolkit Case Study
+            </a>
+            <a href="../powershell-toolkit/index.html">
+              Browse PowerShell Toolkit
+            </a>
+            <a href="index.html">
+              SQL Reporting Portfolio
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            Resources
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../gallery.html">Screenshot Gallery</a>
+            <a href="../powershell-toolkit/index.html#included-scripts">
+              PowerShell Scripts
+            </a>
+            <a href="../powershell-toolkit/index.html#sample-results">
+              Sample Results
+            </a>
+          </div>
+        </div>
+
+        <a href="../contact.html">Contact</a>
+
+        <form
+          class="site-search"
+          role="search"
+          data-root="../"
+        >
+          <label class="sr-only" for="site-search-input">
+            Search portfolio
+          </label>
+
+          <input
+            id="site-search-input"
+            type="search"
+            placeholder="Search portfolio"
+            autocomplete="off"
+          >
+
+          <button type="submit" aria-label="Search">
+            &#128269;
+          </button>
+
+          <div
+            class="search-results-panel"
+            aria-live="polite"
+          ></div>
+        </form>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-small">
+      <div class="container">
+        <p class="eyebrow">Query Documentation</p>
+        <h1>Multi-Level Course Roster and Scheduling Report</h1>
+
+        <p>
+          Technical documentation for a sanitized operational roster and
+          scheduling query.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="button button-primary"
+            href="view-multi-level-course-roster.html"
+          >
+            View Query
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="view-sample-multi-level-course-roster.html"
+          >
+            View Sample Results
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="index.html"
+          >
+            Back to SQL Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <article class="project-card">
+          <h2>Overview</h2>
+
+          <p>
+            This SQL example demonstrates how a multi-table operational report
+            can combine enrollment, scheduling, course, term, school, and
+            instructor data.
+          </p>
+
+          <p>
+            The query is based on a real reporting workflow but removes
+            organization-specific names, identifiers, course codes, and
+            personnel information.
+          </p>
+
+          <h2>Purpose</h2>
+
+          <p>
+            The report identifies actively enrolled records that meet
+            grade-level and course-specific participation rules for a selected
+            reporting year.
+          </p>
+
+          <h2>Report Fields</h2>
+
+          <ul>
+            <li>Student identifier</li>
+            <li>SIS identifier</li>
+            <li>First and last name</li>
+            <li>Grade level</li>
+            <li>School</li>
+            <li>Course number and name</li>
+            <li>Section number</li>
+            <li>Term</li>
+            <li>Instructor</li>
+          </ul>
+
+          <h2>Tables Used</h2>
+
+          <ul>
+            <li><code>students</code></li>
+            <li><code>cc</code></li>
+            <li><code>terms</code></li>
+            <li><code>schools</code></li>
+            <li><code>sections</code></li>
+            <li><code>courses</code></li>
+            <li><code>teachers</code></li>
+          </ul>
+
+          <h2>SQL Concepts Demonstrated</h2>
+
+          <ul>
+            <li>Seven-table <code>INNER JOIN</code> structure</li>
+            <li>Parameterized reporting-year filtering</li>
+            <li>Active-record filtering</li>
+            <li>Grouped <code>AND</code> and <code>OR</code> logic</li>
+            <li>Grade-specific business rules</li>
+            <li><code>IN</code> and <code>NOT IN</code> filters</li>
+            <li>Duplicate prevention with <code>DISTINCT</code></li>
+            <li>Multi-column sorting</li>
+          </ul>
+
+          <h2>Business Logic</h2>
+
+          <p>The query includes records only when:</p>
+
+          <ol>
+            <li>The student is actively enrolled.</li>
+            <li>The course belongs to the selected reporting year.</li>
+            <li>The instructor is not part of the exclusion list.</li>
+            <li>
+              The grade level matches an approved set of course codes.
+            </li>
+          </ol>
+
+          <p>
+            Grouped conditions allow each grade band to use different
+            course-selection rules without repeating the entire query through
+            multiple <code>UNION</code> statements.
+          </p>
+
+          <h2>Sanitization</h2>
+
+          <p>The public version replaces:</p>
+
+          <ul>
+            <li>School names</li>
+            <li>Organization identifiers</li>
+            <li>Course numbers</li>
+            <li>Instructor identifiers</li>
+            <li>Reporting-year values</li>
+            <li>Personally identifiable information</li>
+          </ul>
+
+          <p>
+            The original query structure and reporting logic were retained.
+          </p>
+
+          <h2>Potential Uses</h2>
+
+          <ul>
+            <li>Course rosters</li>
+            <li>Program participation reports</li>
+            <li>Employee training assignments</li>
+            <li>Membership eligibility reports</li>
+            <li>Certification tracking</li>
+            <li>Department scheduling</li>
+            <li>Access-provisioning audits</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+<footer class="site-footer">
+    <div class="container footer-content">
+        <div>
+            <p>&copy; <span id="current-year"></span> Adam Thomas</p>
+            <p>Baytown, Texas</p>
+        </div>
+
+        <div>
+            <p>
+                Email:
+                <a href="mailto:adam.thomas9891@gmail.com">
+                    adam.thomas9891@gmail.com
+                </a>
+            </p>
+
+            <p>
+                GitHub:
+                <a
+                    href="https://github.com/sneaky1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    github.com/sneaky1
+                </a>
+            </p>
+        </div>
+
+        <p>
+            Built with HTML, CSS, JavaScript, Git, and GitHub Pages.
+        </p>
+    </div>
+</footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
+

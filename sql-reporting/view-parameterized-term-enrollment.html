@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Parameterized Term Enrollment Query | Adam Thomas</title>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="site-name" href="../index.html">Adam Thomas</a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle active"
+            type="button"
+            aria-expanded="false"
+          >
+            Projects
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../projects.html">All Projects</a>
+
+            <a href="../projects/chromebook-repair.html">
+              Chromebook Repair System
+            </a>
+
+            <a href="../projects/powershell-toolkit.html">
+              PowerShell Toolkit Case Study
+            </a>
+
+            <a href="../powershell-toolkit/index.html">
+              Browse PowerShell Toolkit
+            </a>
+
+            <a href="index.html">
+              SQL Reporting Portfolio
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            Resources
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../gallery.html">Screenshot Gallery</a>
+
+            <a href="../powershell-toolkit/index.html#included-scripts">
+              PowerShell Scripts
+            </a>
+
+            <a href="../powershell-toolkit/index.html#sample-results">
+              Sample Results
+            </a>
+          </div>
+        </div>
+
+        <a href="../contact.html">Contact</a>
+
+        <form
+          class="site-search"
+          role="search"
+          data-root="../"
+        >
+          <label class="sr-only" for="site-search-input">
+            Search portfolio
+          </label>
+
+          <input
+            id="site-search-input"
+            type="search"
+            placeholder="Search portfolio"
+            autocomplete="off"
+          >
+
+          <button type="submit" aria-label="Search">
+            &#128269;
+          </button>
+
+          <div
+            class="search-results-panel"
+            aria-live="polite"
+          ></div>
+        </form>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-small">
+      <div class="container">
+        <p class="eyebrow">SQL Query</p>
+
+        <h1>Parameterized Term Enrollment Report</h1>
+
+        <p>
+          A sanitized Oracle SQL report that supports optional filtering by
+          term, organization, and level range.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="button button-secondary"
+            href="docs/parameterized-term-enrollment.md"
+          >
+            View Raw Documentation
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="sample-output/parameterized-term-enrollment.csv"
+          >
+            Download Sample CSV
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="index.html"
+          >
+            Back to SQL Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <article class="project-card">
+          <p class="project-type">
+            Oracle SQL • Bind Variables • Optional Filters • Range Logic
+          </p>
+
+          <h2>Query</h2>
+
+          <pre><code>-- Parameterized Term Enrollment Report
+-- Sanitized portfolio example based on a real Oracle reporting workflow
+
+SELECT DISTINCT
+    p.person_number,
+    p.last_name,
+    p.first_name,
+    p.level_code,
+    org.organization_name,
+    trm.term_name,
+    crs.course_code,
+    crs.course_name
+FROM participants p
+INNER JOIN enrollments e
+    ON e.participant_id = p.participant_id
+INNER JOIN terms trm
+    ON trm.term_id = e.term_id
+INNER JOIN organizations org
+    ON org.organization_id = e.organization_id
+INNER JOIN courses crs
+    ON crs.course_id = e.course_id
+WHERE p.status_code = 'ACTIVE'
+  AND trm.reporting_year_id = :reporting_year_id
+  AND (
+        :term_id IS NULL
+        OR trm.term_id = :term_id
+      )
+  AND (
+        :organization_id IS NULL
+        OR org.organization_id = :organization_id
+      )
+  AND (
+        :level_min IS NULL
+        OR p.level_code &gt;= :level_min
+      )
+  AND (
+        :level_max IS NULL
+        OR p.level_code &lt;= :level_max
+      )
+ORDER BY
+    org.organization_name,
+    p.level_code,
+    p.last_name,
+    p.first_name;</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <p>&copy; <span id="current-year"></span> Adam Thomas</p>
+        <p>Baytown, Texas</p>
+      </div>
+
+      <div>
+        <p>
+          Email:
+          <a href="mailto:adam.thomas9891@gmail.com">
+            adam.thomas9891@gmail.com
+          </a>
+        </p>
+
+        <p>
+          GitHub:
+          <a
+            href="https://github.com/sneaky1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/sneaky1
+          </a>
+        </p>
+      </div>
+
+      <p>
+        Built with HTML, CSS, JavaScript, Git, and GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

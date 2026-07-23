@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Active Enrollment Sample Results | Adam Thomas</title>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="site-name" href="../index.html">Adam Thomas</a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle active"
+            type="button"
+            aria-expanded="false"
+          >
+            Projects
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../projects.html">All Projects</a>
+
+            <a href="../projects/chromebook-repair.html">
+              Chromebook Repair System
+            </a>
+
+            <a href="../projects/powershell-toolkit.html">
+              PowerShell Toolkit Case Study
+            </a>
+
+            <a href="../powershell-toolkit/index.html">
+              Browse PowerShell Toolkit
+            </a>
+
+            <a href="index.html">
+              SQL Reporting Portfolio
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            Resources
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../gallery.html">Screenshot Gallery</a>
+
+            <a href="../powershell-toolkit/index.html#included-scripts">
+              PowerShell Scripts
+            </a>
+
+            <a href="../powershell-toolkit/index.html#sample-results">
+              Sample Results
+            </a>
+          </div>
+        </div>
+
+        <a href="../contact.html">Contact</a>
+
+        <form
+          class="site-search"
+          role="search"
+          data-root="../"
+        >
+          <label class="sr-only" for="site-search-input">
+            Search portfolio
+          </label>
+
+          <input
+            id="site-search-input"
+            type="search"
+            placeholder="Search portfolio"
+            autocomplete="off"
+          >
+
+          <button type="submit" aria-label="Search">
+            &#128269;
+          </button>
+
+          <div
+            class="search-results-panel"
+            aria-live="polite"
+          ></div>
+        </form>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-small">
+      <div class="container">
+        <p class="eyebrow">Sample Results</p>
+
+        <h1>Active Enrollment and Effective-Date Report</h1>
+
+        <p>
+          Fictional sample records demonstrating point-in-time status,
+          eligibility, entry-date, and exit-date reporting.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="button button-primary"
+            href="view-active-enrollment-effective-date.html"
+          >
+            View Query
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="view-doc-active-enrollment-effective-date.html"
+          >
+            View Documentation
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="sample-output/active-enrollment-effective-date.csv"
+          >
+            Download Sample CSV
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="index.html"
+          >
+            Back to SQL Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <article class="project-card">
+          <p class="project-type">
+            Sanitized Data • Date Logic • Fictional Results
+          </p>
+
+          <h2>Sample Enrollment Results</h2>
+
+          <p>
+            These records are fictional and contain no real personal,
+            organizational, program, or eligibility information.
+          </p>
+
+          <h3>Choose Columns</h3>
+
+          <div class="column-controls" aria-label="Table column controls">
+            <label>
+              <input type="checkbox" data-column="0" checked>
+              Person Number
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="1" checked>
+              Name
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="2" checked>
+              Eligibility
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="3" checked>
+              Effective Date
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="4" checked>
+              Entry Date
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="5" checked>
+              Exit Date
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="6" checked>
+              Status
+            </label>
+          </div>
+
+          <div class="table-wrapper">
+            <table id="active-enrollment-table">
+              <thead>
+                <tr>
+                  <th>Person Number</th>
+                  <th>Name</th>
+                  <th>Eligibility</th>
+                  <th>Effective Date</th>
+                  <th>Entry Date</th>
+                  <th>Exit Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>700001</td>
+                  <td>Mia Anderson</td>
+                  <td>Category A</td>
+                  <td>08/01/2026</td>
+                  <td>08/01/2026</td>
+                  <td>Ongoing</td>
+                  <td>Active</td>
+                </tr>
+
+                <tr>
+                  <td>700002</td>
+                  <td>Noah Bennett</td>
+                  <td>Category B</td>
+                  <td>08/15/2026</td>
+                  <td>08/15/2026</td>
+                  <td>05/31/2027</td>
+                  <td>Active</td>
+                </tr>
+
+                <tr>
+                  <td>700003</td>
+                  <td>Olivia Carter</td>
+                  <td>Category A</td>
+                  <td>09/01/2026</td>
+                  <td>09/01/2026</td>
+                  <td>Ongoing</td>
+                  <td>Active</td>
+                </tr>
+
+                <tr>
+                  <td>700004</td>
+                  <td>Ethan Diaz</td>
+                  <td>Category C</td>
+                  <td>08/01/2025</td>
+                  <td>08/01/2025</td>
+                  <td>12/20/2026</td>
+                  <td>Active</td>
+                </tr>
+
+                <tr>
+                  <td>700005</td>
+                  <td>Ava Evans</td>
+                  <td>Category B</td>
+                  <td>01/10/2027</td>
+                  <td>01/10/2027</td>
+                  <td>Ongoing</td>
+                  <td>Inactive</td>
+                </tr>
+
+                <tr>
+                  <td>700006</td>
+                  <td>Liam Foster</td>
+                  <td>Category A</td>
+                  <td>08/01/2025</td>
+                  <td>08/01/2025</td>
+                  <td>05/31/2026</td>
+                  <td>Inactive</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <p>&copy; <span id="current-year"></span> Adam Thomas</p>
+        <p>Baytown, Texas</p>
+      </div>
+
+      <div>
+        <p>
+          Email:
+          <a href="mailto:adam.thomas9891@gmail.com">
+            adam.thomas9891@gmail.com
+          </a>
+        </p>
+
+        <p>
+          GitHub:
+          <a
+            href="https://github.com/sneaky1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/sneaky1
+          </a>
+        </p>
+      </div>
+
+      <p>
+        Built with HTML, CSS, JavaScript, Git, and GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll("[data-column]").forEach(function (checkbox) {
+      checkbox.addEventListener("change", function () {
+        const columnIndex = Number(this.dataset.column);
+        const table = document.getElementById("active-enrollment-table");
+
+        if (!table) {
+          return;
+        }
+
+        table.querySelectorAll("tr").forEach(function (row) {
+          const cell = row.children[columnIndex];
+
+          if (cell) {
+            cell.classList.toggle(
+              "column-hidden",
+              !checkbox.checked
+            );
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿person_number,last_name,first_name,eligibility_category,effective_date,entry_date,exit_date,enrollment_status
+700001,Anderson,Mia,Category A,08/01/2026,08/01/2026,,Active
+700002,Bennett,Noah,Category B,08/15/2026,08/15/2026,05/31/2027,Active
+700003,Carter,Olivia,Category A,09/01/2026,09/01/2026,,Active
+700004,Diaz,Ethan,Category C,08/01/2025,08/01/2025,12/20/2026,Active
+700005,Evans,Ava,Category B,01/10/2027,01/10/2027,,Inactive
+700006,Foster,Liam,Category A,08/01/2025,08/01/2025,05/31/2026,Inactive

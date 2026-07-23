@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Multi-Level Course Roster Query | Adam Thomas</title>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="site-name" href="../index.html">Adam Thomas</a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle active"
+            type="button"
+            aria-expanded="false"
+          >
+            Projects
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../projects.html">All Projects</a>
+            <a href="../projects/chromebook-repair.html">
+              Chromebook Repair System
+            </a>
+            <a href="../projects/powershell-toolkit.html">
+              PowerShell Toolkit Case Study
+            </a>
+            <a href="../powershell-toolkit/index.html">
+              Browse PowerShell Toolkit
+            </a>
+            <a href="index.html">
+              SQL Reporting Portfolio
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            Resources
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../gallery.html">Screenshot Gallery</a>
+            <a href="../powershell-toolkit/index.html#included-scripts">
+              PowerShell Scripts
+            </a>
+            <a href="../powershell-toolkit/index.html#sample-results">
+              Sample Results
+            </a>
+          </div>
+        </div>
+
+        <a href="../contact.html">Contact</a>
+
+        <form
+          class="site-search"
+          role="search"
+          data-root="../"
+        >
+          <label class="sr-only" for="site-search-input">
+            Search portfolio
+          </label>
+
+          <input
+            id="site-search-input"
+            type="search"
+            placeholder="Search portfolio"
+            autocomplete="off"
+          >
+
+          <button type="submit" aria-label="Search">
+            &#128269;
+          </button>
+
+          <div
+            class="search-results-panel"
+            aria-live="polite"
+          ></div>
+        </form>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-small">
+      <div class="container">
+        <p class="eyebrow">SQL Query</p>
+        <h1>Multi-Level Course Roster and Scheduling Report</h1>
+
+        <p>
+          A sanitized multi-table reporting query that combines student,
+          enrollment, school, course, section, term, and instructor data.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="button button-secondary"
+            href="docs/multi-level-course-roster.md"
+          >
+            View Raw Documentation
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="sample-output/multi-level-course-roster.csv"
+          >
+            Download Sample CSV
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="index.html"
+          >
+            Back to SQL Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <article class="project-card">
+          <p class="project-type">
+            Oracle SQL • Seven-Table Join • Parameterized Reporting
+          </p>
+
+          <h2>Query</h2>
+
+          <pre><code>-- Multi-Level Course Roster and Scheduling Report
+-- Sanitized portfolio example based on a production reporting query
+
+SELECT DISTINCT
+    s.id AS student_id,
+    s.student_number AS sis_student_id,
+    s.first_name,
+    s.last_name,
+    s.grade_level,
+    sch.name AS school_name,
+    c.course_number,
+    c.course_name,
+    sec.section_number,
+    t.abbreviation AS term_name,
+    tea.first_name AS instructor_first_name,
+    tea.last_name AS instructor_last_name,
+    NULL AS assignment_access_code
+
+FROM cc
+
+INNER JOIN students s
+    ON s.id = cc.studentid
+
+INNER JOIN terms t
+    ON t.id = cc.termid
+
+INNER JOIN schools sch
+    ON sch.school_number = cc.schoolid
+
+INNER JOIN sections sec
+    ON sec.id = cc.sectionid
+
+INNER JOIN courses c
+    ON c.course_number = cc.course_number
+
+INNER JOIN teachers tea
+    ON tea.id = cc.teacherid
+
+WHERE s.enroll_status = 0
+  AND t.yearid = :reporting_year_id
+
+  AND tea.teachernumber NOT IN (
+      'EXCLUDED001',
+      'EXCLUDED002'
+  )
+
+  AND (
+      (
+          s.grade_level IN (3, 4, 5)
+          AND c.course_number = 'ELEMENTARY_PROGRAM'
+      )
+
+      OR
+
+      (
+          s.grade_level = 6
+          AND c.course_number IN (
+              'GRADE6_PROGRAM_A',
+              'GRADE6_PROGRAM_B'
+          )
+      )
+
+      OR
+
+      (
+          s.grade_level = 7
+          AND c.course_number IN (
+              'GRADE7_PROGRAM_A',
+              'GRADE7_PROGRAM_B',
+              'GRADE7_PROGRAM_C'
+          )
+      )
+
+      OR
+
+      (
+          s.grade_level = 8
+          AND c.course_number IN (
+              'GRADE8_PROGRAM_A',
+              'GRADE8_PROGRAM_B',
+              'GRADE8_PROGRAM_C'
+          )
+      )
+
+      OR
+
+      (
+          s.grade_level IN (9, 10)
+          AND c.course_number IN (
+              'SECONDARY_PROGRAM_A',
+              'SECONDARY_PROGRAM_B',
+              'SECONDARY_PROGRAM_C'
+          )
+      )
+  )
+
+ORDER BY
+    sch.name,
+    s.grade_level,
+    s.last_name,
+    s.first_name,
+    c.course_number;</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+<footer class="site-footer">
+    <div class="container footer-content">
+        <div>
+            <p>&copy; <span id="current-year"></span> Adam Thomas</p>
+            <p>Baytown, Texas</p>
+        </div>
+
+        <div>
+            <p>
+                Email:
+                <a href="mailto:adam.thomas9891@gmail.com">
+                    adam.thomas9891@gmail.com
+                </a>
+            </p>
+
+            <p>
+                GitHub:
+                <a
+                    href="https://github.com/sneaky1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    github.com/sneaky1
+                </a>
+            </p>
+        </div>
+
+        <p>
+            Built with HTML, CSS, JavaScript, Git, and GitHub Pages.
+        </p>
+    </div>
+</footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
+

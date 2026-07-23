@@ -1,0 +1,7 @@
+﻿student_id,sis_student_id,first_name,last_name,grade_level,school_name,course_number,course_name,section_number,term_name,instructor_first_name,instructor_last_name
+1001,500001,Jordan,Lee,5,North Elementary,ELEMENTARY_PROGRAM,Digital Learning Foundations,501,Q1,Alex,Morgan
+1002,500002,Taylor,Nguyen,6,Central Middle School,GRADE6_PROGRAM_A,Technology Applications,601,S1,Casey,Rivera
+1003,500003,Morgan,Patel,7,Central Middle School,GRADE7_PROGRAM_B,Computer Science Fundamentals,702,S1,Jamie,Clark
+1004,500004,Riley,Johnson,8,Central Middle School,GRADE8_PROGRAM_C,Digital Media and Design,803,S2,Chris,Walker
+1005,500005,Cameron,Davis,9,West High School,SECONDARY_PROGRAM_A,Introduction to Information Technology,901,S1,Dana,Mitchell
+1006,500006,Avery,Martinez,10,West High School,SECONDARY_PROGRAM_C,Cybersecurity Foundations,1003,S2,Robin,Thompson

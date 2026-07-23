@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Grade-Scale Audit Sample Results | Adam Thomas</title>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="site-name" href="../index.html">Adam Thomas</a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle active"
+            type="button"
+            aria-expanded="false"
+          >
+            Projects
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../projects.html">All Projects</a>
+
+            <a href="../projects/chromebook-repair.html">
+              Chromebook Repair System
+            </a>
+
+            <a href="../projects/powershell-toolkit.html">
+              PowerShell Toolkit Case Study
+            </a>
+
+            <a href="../powershell-toolkit/index.html">
+              Browse PowerShell Toolkit
+            </a>
+
+            <a href="index.html">
+              SQL Reporting Portfolio
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            Resources
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="../gallery.html">
+              Screenshot Gallery
+            </a>
+
+            <a href="../powershell-toolkit/index.html#included-scripts">
+              PowerShell Scripts
+            </a>
+
+            <a href="../powershell-toolkit/index.html#sample-results">
+              Sample Results
+            </a>
+          </div>
+        </div>
+
+        <a href="../contact.html">Contact</a>
+
+        <form
+          class="site-search"
+          role="search"
+          data-root="../"
+        >
+          <label class="sr-only" for="site-search-input">
+            Search portfolio
+          </label>
+
+          <input
+            id="site-search-input"
+            type="search"
+            placeholder="Search portfolio"
+            autocomplete="off"
+          >
+
+          <button type="submit" aria-label="Search">
+            &#128269;
+          </button>
+
+          <div
+            class="search-results-panel"
+            aria-live="polite"
+          ></div>
+        </form>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-small">
+      <div class="container">
+        <p class="eyebrow">Sample Results</p>
+
+        <h1>Course Configuration and Grade-Scale Audit</h1>
+
+        <p>
+          Fictional sample records demonstrating how the audit identifies
+          expected, missing, and unexpected configuration values.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="button button-primary"
+            href="view-course-grade-scale-audit.html"
+          >
+            View Query
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="view-doc-course-grade-scale-audit.html"
+          >
+            View Documentation
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="sample-output/course-grade-scale-audit.csv"
+          >
+            Download Sample CSV
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="index.html"
+          >
+            Back to SQL Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <article class="project-card">
+          <p class="project-type">
+            Sanitized Data • Configuration Audit • Fictional Results
+          </p>
+
+          <h2>Sample Audit Results</h2>
+
+          <p>
+            These records are fictional and contain no real organization,
+            course, school, or configuration information.
+          </p>
+
+          <h3>Choose Columns</h3>
+
+          <div class="column-controls" aria-label="Table column controls">
+            <label>
+              <input type="checkbox" data-column="0" checked>
+              Course Number
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="1" checked>
+              Course Name
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="2" checked>
+              Grade Scale ID
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="3" checked>
+              Term ID
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="4" checked>
+              School ID
+            </label>
+
+            <label>
+              <input type="checkbox" data-column="5" checked>
+              Audit Status
+            </label>
+          </div>
+
+          <div class="table-wrapper">
+            <table id="grade-scale-audit-table">
+              <thead>
+                <tr>
+                  <th>Course Number</th>
+                  <th>Course Name</th>
+                  <th>Grade Scale ID</th>
+                  <th>Term ID</th>
+                  <th>School ID</th>
+                  <th>Audit Status</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>ENG101</td>
+                  <td>English Language Arts</td>
+                  <td>10</td>
+                  <td>3100</td>
+                  <td>100</td>
+                  <td>Expected Grade Scale</td>
+                </tr>
+
+                <tr>
+                  <td>MATH201</td>
+                  <td>Algebra Foundations</td>
+                  <td>10</td>
+                  <td>3100</td>
+                  <td>100</td>
+                  <td>Expected Grade Scale</td>
+                </tr>
+
+                <tr>
+                  <td>SCI301</td>
+                  <td>Life Science</td>
+                  <td>12</td>
+                  <td>3100</td>
+                  <td>100</td>
+                  <td>Different Grade Scale</td>
+                </tr>
+
+                <tr>
+                  <td>SOC401</td>
+                  <td>World History</td>
+                  <td>Not assigned</td>
+                  <td>3100</td>
+                  <td>100</td>
+                  <td>Missing Grade Scale</td>
+                </tr>
+
+                <tr>
+                  <td>ART110</td>
+                  <td>Visual Arts</td>
+                  <td>10</td>
+                  <td>3200</td>
+                  <td>200</td>
+                  <td>Expected Grade Scale</td>
+                </tr>
+
+                <tr>
+                  <td>TECH210</td>
+                  <td>Digital Applications</td>
+                  <td>15</td>
+                  <td>3200</td>
+                  <td>200</td>
+                  <td>Different Grade Scale</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <p>&copy; <span id="current-year"></span> Adam Thomas</p>
+        <p>Baytown, Texas</p>
+      </div>
+
+      <div>
+        <p>
+          Email:
+          <a href="mailto:adam.thomas9891@gmail.com">
+            adam.thomas9891@gmail.com
+          </a>
+        </p>
+
+        <p>
+          GitHub:
+          <a
+            href="https://github.com/sneaky1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/sneaky1
+          </a>
+        </p>
+      </div>
+
+      <p>
+        Built with HTML, CSS, JavaScript, Git, and GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll("[data-column]").forEach(function (checkbox) {
+      checkbox.addEventListener("change", function () {
+        const columnIndex = Number(this.dataset.column);
+        const table = document.getElementById("grade-scale-audit-table");
+
+        if (!table) {
+          return;
+        }
+
+        table.querySelectorAll("tr").forEach(function (row) {
+          const cell = row.children[columnIndex];
+
+          if (cell) {
+            cell.classList.toggle(
+              "column-hidden",
+              !checkbox.checked
+            );
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
