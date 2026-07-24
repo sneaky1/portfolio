@@ -1132,308 +1132,6 @@ body.mobile-navigation-open {
 }
 
 
-/* Clean mobile dropdown layout */
-
-@media screen and (max-width: 1050px) {
-    #primary-navigation.mobile-menu-open {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    #primary-navigation .nav-dropdown {
-        position: static;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    #primary-navigation .nav-dropdown-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        margin: 0;
-        padding: 0.7rem 0.8rem;
-    }
-
-    #primary-navigation .nav-dropdown-menu {
-        position: static;
-        top: auto;
-        right: auto;
-        bottom: auto;
-        left: auto;
-        transform: none;
-
-        display: none;
-        width: 100%;
-        min-width: 0;
-        max-width: none;
-
-        margin: 0;
-        padding: 0;
-
-        border: 0;
-        border-radius: 0;
-        box-shadow: none;
-        background: transparent;
-    }
-
-    #primary-navigation
-    .nav-dropdown.open
-    > .nav-dropdown-menu,
-
-    #primary-navigation
-    .nav-dropdown-toggle[aria-expanded="true"]
-    + .nav-dropdown-menu {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    #primary-navigation .nav-dropdown-menu a {
-        display: block;
-        width: 100%;
-        min-height: 44px;
-
-        margin: 0;
-        padding: 0.7rem 0.8rem;
-
-        box-sizing: border-box;
-        white-space: normal;
-    }
-}
-
-
-/* Keep compressed submenu items flush with main navigation */
-
-@media screen and (max-width: 1050px) {
-    #primary-navigation .nav-dropdown,
-    #primary-navigation .nav-dropdown-menu {
-        margin-left: 0 !important;
-        padding-left: 0 !important;
-        transform: none !important;
-    }
-
-    #primary-navigation .nav-dropdown-menu a {
-        width: 100% !important;
-        margin-left: 0 !important;
-        padding: 0.7rem 0.8rem !important;
-        box-sizing: border-box !important;
-        transform: none !important;
-    }
-}
-
-
-/* Correct mobile navigation width and submenu alignment */
-
-@media screen and (max-width: 1050px) {
-    #primary-navigation {
-        right: 0 !important;
-        left: 0 !important;
-
-        width: auto !important;
-        max-width: 100% !important;
-
-        margin: 0 !important;
-        padding: 1rem !important;
-
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-    }
-
-    #primary-navigation *,
-    #primary-navigation *::before,
-    #primary-navigation *::after {
-        box-sizing: border-box !important;
-    }
-
-    #primary-navigation > .nav-dropdown {
-        position: static !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    #primary-navigation
-    > .nav-dropdown
-    > .nav-dropdown-menu {
-        position: static !important;
-
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        overflow: hidden !important;
-        transform: none !important;
-    }
-
-    #primary-navigation
-    > .nav-dropdown
-    > .nav-dropdown-menu
-    > a {
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-
-        margin: 0 !important;
-        padding: 0.7rem 0.8rem !important;
-
-        text-indent: 0 !important;
-        transform: none !important;
-        white-space: normal !important;
-    }
-}
-
-
-/* Compact scrollable mobile navigation */
-
-@media screen and (max-width: 1050px) {
-    #primary-navigation {
-        top: calc(100% + 0.35rem) !important;
-        right: 0 !important;
-        left: 0 !important;
-
-        width: auto !important;
-        max-width: 100% !important;
-        max-height: calc(100vh - 5.5rem) !important;
-
-        margin: 0 !important;
-        padding: 0.45rem !important;
-
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        overscroll-behavior: contain;
-
-        box-sizing: border-box !important;
-        border-radius: 0.55rem !important;
-        scrollbar-width: thin;
-    }
-
-    #primary-navigation > a,
-    #primary-navigation .nav-dropdown-toggle {
-        min-height: 38px !important;
-        padding: 0.45rem 0.6rem !important;
-        margin: 0 !important;
-        line-height: 1.2 !important;
-    }
-
-    #primary-navigation .nav-dropdown {
-        width: 100% !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    #primary-navigation .nav-dropdown-menu {
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-
-        margin: 0.15rem 0 0.3rem !important;
-        padding: 0.15rem 0 !important;
-
-        overflow: visible !important;
-        background: transparent !important;
-    }
-
-    #primary-navigation .nav-dropdown-menu a {
-        width: 100% !important;
-        min-height: 34px !important;
-
-        margin: 0 !important;
-        padding: 0.4rem 0.6rem !important;
-
-        line-height: 1.2 !important;
-        white-space: normal !important;
-        text-indent: 0 !important;
-    }
-
-    #primary-navigation .nav-dropdown-toggle::after {
-        font-size: 1rem !important;
-    }
-
-    #primary-navigation .site-search {
-        width: 100% !important;
-        margin: 0.35rem 0 0 !important;
-        gap: 0.25rem;
-    }
-
-    #primary-navigation .site-search input,
-    #primary-navigation .site-search button {
-        min-height: 38px !important;
-    }
-
-    #primary-navigation .search-results-panel {
-        max-height: 40vh !important;
-        overflow-y: auto !important;
-    }
-}
-
-
-/* Fixed-height scrollable mobile navigation */
-
-@media screen and (max-width: 1050px) {
-    #primary-navigation.mobile-menu-open {
-        position: fixed !important;
-
-        top: 4.75rem !important;
-        right: 0.5rem !important;
-        bottom: auto !important;
-        left: 0.5rem !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-        flex-wrap: nowrap !important;
-        align-items: stretch !important;
-
-        width: auto !important;
-        height: calc(100dvh - 5.25rem) !important;
-        min-height: 0 !important;
-        max-height: calc(100dvh - 5.25rem) !important;
-
-        margin: 0 !important;
-        padding: 0.5rem !important;
-
-        overflow-x: hidden !important;
-        overflow-y: scroll !important;
-
-        box-sizing: border-box !important;
-        scrollbar-gutter: stable;
-        overscroll-behavior: contain;
-        -webkit-overflow-scrolling: touch;
-
-        z-index: 9999 !important;
-        pointer-events: auto !important;
-    }
-
-    #primary-navigation.mobile-menu-open > * {
-        flex: 0 0 auto !important;
-        min-height: 0;
-    }
-
-    #primary-navigation.mobile-menu-open .nav-dropdown,
-    #primary-navigation.mobile-menu-open .nav-dropdown-menu {
-        flex: 0 0 auto !important;
-    }
-
-    body.mobile-navigation-open {
-        overflow: hidden !important;
-    }
-
-    body.mobile-navigation-open #primary-navigation {
-        touch-action: pan-y;
-    }
-}
-
 /* Fallback for browsers without dynamic viewport units */
 
 @supports not (height: 100dvh) {
@@ -1442,21 +1140,6 @@ body.mobile-navigation-open {
             height: calc(100vh - 5.25rem) !important;
             max-height: calc(100vh - 5.25rem) !important;
         }
-    }
-}
-
-/* Hide mobile menu scrollbar while keeping vertical scrolling */
-
-@media screen and (max-width: 1050px) {
-    #primary-navigation.mobile-menu-open {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-
-    #primary-navigation.mobile-menu-open::-webkit-scrollbar {
-        width: 0;
-        height: 0;
-        display: none;
     }
 }
 
@@ -1604,5 +1287,316 @@ body.mobile-navigation-open {
     .profile-content .hero-actions .button {
         width: 100%;
         text-align: center;
+    }
+}
+
+
+/* Final About profile layout */
+
+main .profile-introduction {
+    padding: 3rem 0 !important;
+    background: #0b3558 !important;
+    color: #ffffff !important;
+}
+
+main .profile-introduction .profile-layout {
+    display: grid;
+    grid-template-columns: minmax(230px, 340px) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    background: transparent;
+}
+
+main .profile-introduction .profile-photo-wrapper {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    background: transparent;
+}
+
+main .profile-introduction .profile-photo {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    height: 320px;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid rgba(255, 255, 255, 0.75);
+    border-radius: 1.25rem;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.28);
+}
+
+main .profile-introduction .profile-content {
+    min-width: 0;
+    background: transparent;
+}
+
+main .profile-introduction h1,
+main .profile-introduction h2,
+main .profile-introduction h3,
+main .profile-introduction p,
+main .profile-introduction li {
+    color: #ffffff;
+}
+
+main .profile-introduction .eyebrow {
+    color: #7ec8ff;
+}
+
+main .profile-introduction .profile-summary {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+main .profile-introduction .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+main .profile-introduction .hero-actions .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.75rem 1.1rem;
+    border: 1px solid #0b5fa5;
+    border-radius: 0.5rem;
+    background: #0b5fa5;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+main .profile-introduction .hero-actions .button:hover,
+main .profile-introduction .hero-actions .button:focus {
+    border-color: #084b82;
+    background: #084b82;
+    color: #ffffff;
+}
+
+@media screen and (max-width: 800px) {
+    main .profile-introduction .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    main .profile-introduction .profile-photo-wrapper,
+    main .profile-introduction .profile-photo {
+        max-width: 300px;
+    }
+
+    main .profile-introduction .profile-photo {
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    main .profile-introduction {
+        padding: 2rem 0 !important;
+    }
+
+    main .profile-introduction .profile-photo-wrapper,
+    main .profile-introduction .profile-photo {
+        max-width: 260px;
+    }
+
+    main .profile-introduction .profile-photo {
+        height: 240px;
+    }
+
+    main .profile-introduction .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    main .profile-introduction .hero-actions .button {
+        width: 100%;
+    }
+}
+
+
+/* Final mobile navigation layout */
+
+@media screen and (max-width: 1050px) {
+    body.mobile-navigation-open {
+        overflow: hidden !important;
+    }
+
+    #primary-navigation.mobile-menu-open {
+        position: fixed !important;
+        top: 4.75rem !important;
+        right: 0.5rem !important;
+        bottom: auto !important;
+        left: 0.5rem !important;
+        z-index: 9999 !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        gap: 0.1rem !important;
+
+        width: auto !important;
+        height: calc(100dvh - 5.25rem) !important;
+        min-height: 0 !important;
+        max-height: calc(100dvh - 5.25rem) !important;
+
+        margin: 0 !important;
+        padding: 0.45rem !important;
+
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+
+        box-sizing: border-box !important;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    #primary-navigation.mobile-menu-open::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    #primary-navigation.mobile-menu-open,
+    #primary-navigation.mobile-menu-open *,
+    #primary-navigation.mobile-menu-open *::before,
+    #primary-navigation.mobile-menu-open *::after {
+        box-sizing: border-box !important;
+    }
+
+    #primary-navigation.mobile-menu-open > * {
+        flex: 0 0 auto !important;
+        min-width: 0 !important;
+    }
+
+    #primary-navigation.mobile-menu-open > a,
+    #primary-navigation.mobile-menu-open .nav-dropdown-toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+
+        width: 100% !important;
+        min-height: 38px !important;
+
+        margin: 0 !important;
+        padding: 0.45rem 0.6rem !important;
+
+        line-height: 1.2 !important;
+        text-align: left !important;
+    }
+
+    #primary-navigation.mobile-menu-open .nav-dropdown {
+        position: static !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: visible !important;
+    }
+
+    #primary-navigation.mobile-menu-open .nav-dropdown-menu {
+        position: static !important;
+        inset: auto !important;
+        transform: none !important;
+        float: none !important;
+
+        display: none !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+
+        margin: 0.15rem 0 0.3rem !important;
+        padding: 0 !important;
+
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+
+        overflow: visible !important;
+    }
+
+    #primary-navigation.mobile-menu-open
+    .nav-dropdown.open
+    > .nav-dropdown-menu,
+
+    #primary-navigation.mobile-menu-open
+    .nav-dropdown-toggle[aria-expanded="true"]
+    + .nav-dropdown-menu {
+        display: flex !important;
+    }
+
+    #primary-navigation.mobile-menu-open .nav-dropdown-menu a {
+        display: flex !important;
+        align-items: center !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        min-height: 34px !important;
+
+        margin: 0 !important;
+        padding: 0.4rem 0.6rem !important;
+
+        line-height: 1.2 !important;
+        text-indent: 0 !important;
+        white-space: normal !important;
+        transform: none !important;
+    }
+
+    #primary-navigation.mobile-menu-open
+    .nav-dropdown-toggle::after {
+        margin-left: auto !important;
+        font-size: 1rem !important;
+    }
+
+    #primary-navigation.mobile-menu-open .site-search {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0.35rem 0 0 !important;
+        gap: 0.25rem !important;
+    }
+
+    #primary-navigation.mobile-menu-open .site-search input,
+    #primary-navigation.mobile-menu-open .site-search button {
+        min-height: 38px !important;
+    }
+
+    #primary-navigation.mobile-menu-open .search-results-panel {
+        max-height: 40vh !important;
+        overflow-y: auto !important;
+    }
+}
+
+/* Browser fallback for dynamic viewport units */
+
+@supports not (height: 100dvh) {
+    @media screen and (max-width: 1050px) {
+        #primary-navigation.mobile-menu-open {
+            height: calc(100vh - 5.25rem) !important;
+            max-height: calc(100vh - 5.25rem) !important;
+        }
     }
 }
