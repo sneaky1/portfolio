@@ -1508,3 +1508,101 @@ body.mobile-navigation-open {
         background: #dceaf5;
     }
 }
+
+/* Professional profile and headshot */
+
+.profile-introduction {
+    padding-top: 3rem;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: minmax(230px, 340px) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.profile-photo-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+.profile-photo-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 14px -14px -14px 14px;
+    z-index: -1;
+    border-radius: 1.25rem;
+    background: #0b5fa5;
+    opacity: 0.16;
+}
+
+.profile-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 1.25rem;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+}
+
+.profile-content {
+    min-width: 0;
+}
+
+.profile-content h1 {
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.profile-summary {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+.profile-content .hero-actions {
+    margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 800px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-photo-wrapper {
+        max-width: 300px;
+    }
+
+    .profile-content {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .profile-introduction {
+        padding-top: 1.75rem;
+    }
+
+    .profile-photo-wrapper {
+        max-width: 240px;
+    }
+
+    .profile-photo-wrapper::before {
+        inset: 9px -9px -9px 9px;
+    }
+
+    .profile-content .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .profile-content .hero-actions .button {
+        width: 100%;
+        text-align: center;
+    }
+}
